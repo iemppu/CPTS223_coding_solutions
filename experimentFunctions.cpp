@@ -5,7 +5,7 @@
 
 using namespace std;
 
-double log2(double d)
+double myLog2(double d)
 {
     return log(d) / log(2); // log() use e as base
 }
@@ -173,7 +173,7 @@ void stage1(AVLTree<int>* avl, int numIntegers) {
     cout << "         testHeigth? " << testHeight(avl) << endl;
     
     double averageDepth = avl->averageDepth();
-    cout << "(EXP2.5) The average depth: " << averageDepth << " (v.s. log2(n)=" << log2(numIntegers) << ")" << endl;
+    cout << "(EXP2.5) The average depth: " << averageDepth << " (v.s. log2(n)=" << myLog2(numIntegers) << ")" << endl;
     double relativeChangeFromTextbookInitial = (averageDepth - 9.98) / 9.98;
     cout << "         Comparing with the BST in Figure 4.29 of Textbook (9.98): ";
     if (relativeChangeFromTextbookInitial > 0)
@@ -215,7 +215,7 @@ void stage2(AVLTree<int>* avl, int numRandomInsertRemove) {
     double newAverageDepth = avl->averageDepth();
     double relativeChangeFromInitial = ( newAverageDepth - averageDepth ) / newAverageDepth;
     double relativeChangeFromTextbook = ( newAverageDepth - 12.51 ) / 12.51;
-    cout << "(EXP2.10) New average depth: " << newAverageDepth << " (v.s. log2(n)=" << log2(numIntegers) << ")" << endl;
+    cout << "(EXP2.10) New average depth: " << newAverageDepth << " (v.s. log2(n)=" << myLog2(numIntegers) << ")" << endl;
     cout << "          Comparing with the initial AVL (" << averageDepth << "): ";
     if (relativeChangeFromInitial > 0)
         cout << (relativeChangeFromInitial*100) << "% more" << endl;

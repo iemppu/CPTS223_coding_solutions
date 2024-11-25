@@ -10,7 +10,7 @@
 #include <cmath>
 
 // util function for log2
-double log2(double d);
+double myLog2(double d);
 
 // test functions for experiment 1
 bool testBST(AVLTree<int>* avl);
