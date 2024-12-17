@@ -57,7 +57,7 @@ int MyQueue::peek()
 	if (isEmpty())
 	{
 		std::cout << "UnderFlow\nProgram Terminated\n";
-		return numeric_limits<int>::min();
+		return std::numeric_limits<int>::min();
 	}
 	return arr[front];
 }
