@@ -147,7 +147,7 @@ int main(int argc, char** argv)
 			cout << endl;
 		}
 		else if (testName == "TestSearchByKey") {
-		    cout << "Run test Search by key: mapByUserName[\"" << keyToSearch << "\"]" << endl;
+		    cout << "Run test Search by key" << endl;
 			string keyToSearch = "smith55";
 		    assert( testSearchByKey(mapByUserName, keyToSearch) == 1 );
 				
@@ -162,7 +162,7 @@ int main(int argc, char** argv)
 
 		}
 		else if (testName == "TestDeleteByKey") {
-		    cout << "Run test Delete by key: \"" << keyToDelete << "\"" << endl;
+		    cout << "Run test Delete by key" << endl;
 			string keyToDelete = "smith55";
 		    assert(testDeleteByKey(mapByUserName, keyToDelete) == 1)
 
