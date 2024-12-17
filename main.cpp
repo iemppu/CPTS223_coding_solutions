@@ -25,7 +25,6 @@ Poor Design Choices for Queue
 #include <string>
 #include "testQueue.h"
 
-// main function
 int main(int argc, char** argv)
 {
 
@@ -34,14 +33,35 @@ int main(int argc, char** argv)
         return 1;
     }
 
-    std::string test_name = argv[1];
+    std::string testName = argv[1];
 
     try {
-        if (test_name == "CSQ") {
-            testSize_CSQ();
+        if (testName == "QSC") {
+            testSize_QSC();
 		}
-		else if (test_name == "EQC") {
+		else if (testName == "EQC") {
 			testEmpty_EQC();
+		}
+		else if (testName == "FQC") {
+			testFull_FQC();
+		}
+		else if (testName == "ENC1") {
+			testEnqueue_ENC1();
+		}
+		else if (testName == "ENC2") {
+			testEnqueue_ENC2();
+		}
+		else if (testName == "DQC1") {
+			testEnqueue_DQC1();
+		}
+		else if (testName == "DQC2") {
+			testEnqueue_DQC2();
+		}
+		else if (testName == "PQC1") {
+			testPeek_PQC1();
+		}
+		else if (testName == "PQC2") {
+			testPeek_PQC2();
         } else {
             std::cerr << "Unknown test: " << test_name << std::endl;
             return 1;
