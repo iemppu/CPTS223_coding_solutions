@@ -1,5 +1,6 @@
 #include <map>
 #include <unordered_map>
+#include <cassert>
 #include "generate_users.hpp"
 using namespace std;
 
@@ -11,6 +12,10 @@ map<string, User> buildMapByUserName(vector<User> users) {
         usersMap[users[i].userName] = users[i];
     }
     return usersMap;
+}
+
+void testBuildMapByUserName() {
+
 }
 
 
@@ -99,6 +104,23 @@ void printMostPopularCategory(map<string, User> aMap) {
     cout << "The most popular category is " << mostPopularCategory << ", which is " << num << " users' most viewed category." << endl;
 }
 
+
+
+void testBuildMap(map<string, User>* mapByUserName, int numUsers) {
+    if (mapByUserName == nullptr) {
+        cout << "Error: Null pointer received." << endl;
+        assert(false && "Null pointer received");
+        return;
+    }
+    else {
+        assert(mapByUserName->size() == numUsers);
+        cout << "Test build the map passed" << endl;
+        return;
+    }
+}
+
+
+
 int main()
 {
     int numUsers = 10;
@@ -107,11 +129,46 @@ int main()
 
     cout << "Build map with username as key" << endl;
     map<string, User> mapByUserName = buildMapByUserName(users);
-    if ( mapByUserName.size() == numUsers )
-        cout << "  Built successfully." << endl << endl;
-    else
-        cout << "  Built unsuccessfully." << endl << endl;
 
+    if (argc != 2) {
+        std::cerr << "Usage: " << argv[0] << " <testName>" << std::endl;
+        return 1;
+    }
+
+    std::string testName = argv[1];
+
+    try {
+        if (testName == "testBuildMap") {
+            testBuildMap(&mapByUserName);
+		}
+		else if (testName == "PrintLevels") {
+			testPrintLevels(bst);
+		}
+		else if (testName == "TestContain") {
+			testContain(bst);
+		}
+		else if (testName == "TestSize") {
+			testSize(bst);
+		}
+		else if (testName == "TestHeight") {
+			testHeight(bst);
+		}
+		else if (testName == "PrintMaxPath") {
+			testPrintMaxPath(bst);
+		}
+		else if (testName == "TestDelete") {
+			testDelete(bst);
+        } else {
+            std::cerr << "Unknown test: " << testName << std::endl;
+            return 1;
+        }
+
+        std::cout << "Test Passed: " << testName << std::endl;
+    } catch (const std::exception& e) {
+        std::cerr << "Test Failed: " << testName << " - " << e.what() << std::endl;
+        return 1;
+    }
+    
 
     cout << "Print \"mapByUserName\" map:" << endl;
     printMap(mapByUserName);
