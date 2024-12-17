@@ -4,7 +4,6 @@
 #include <iostream>
 #include <cstdlib>
 #include <limits>
-using namespace std;
 
 // define default capacity of the queue
 #define SIZE 10
