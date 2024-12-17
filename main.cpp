@@ -49,19 +49,19 @@ int main(int argc, char** argv)
 			testEnqueue_ENC1();
 		}
 		else if (testName == "ENC2") {
-			testEnqueue_ENC2();
+			testEnqueueFull_ENC2();
 		}
 		else if (testName == "DQC1") {
-			testEnqueue_DQC1();
+			testDequeue_DQC1();
 		}
 		else if (testName == "DQC2") {
-			testEnqueue_DQC2();
+			testDequeueEmpty_DQC2();
 		}
 		else if (testName == "PQC1") {
 			testPeek_PQC1();
 		}
 		else if (testName == "PQC2") {
-			testPeek_PQC2();
+			testPeekEmpty_PQC2();
         } else {
             std::cerr << "Unknown test: " << testName << std::endl;
             return 1;
@@ -74,17 +74,5 @@ int main(int argc, char** argv)
     }
 
     return 0;
-	
-	// // call your test functions here!
-	// testSize();
-	// testEmpty();
-	// testFULL();
-	// testEnqueue();
-	// testEnqueueFull();
-	// testDequeue();
-	// testDequeueEmpty();
-	// testPeek();
-	// testPeekEmpty();
-	// return 0;
 }
 
