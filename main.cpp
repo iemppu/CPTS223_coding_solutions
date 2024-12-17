@@ -21,6 +21,8 @@ Poor Design Choices for Queue
 //cmake ..
 //make
 
+#include <iostream>
+#include <string>
 #include "testQueue.h"
 
 // main function
