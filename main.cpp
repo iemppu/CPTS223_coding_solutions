@@ -17,11 +17,21 @@ void testInOrderTraversal(BST<int>* bst) {
     std::string expected = "-10 -> -1 -> 1 -> 6 -> 11 -> 100 -> </s>";
     assert(buffer.str() == expected);
 
-	std::cout << "printInOrder test passed!" << endl;
+	std::cout << "PrintInOrder test passed!" << endl;
 }
-// cout << "(1.1) Print BST (in-order traversal): " << endl << " ";
-// bst->printInOrder();
-// cout << endl;
+
+void testPrintLevels(BST<int>* bst) {
+	std::stringstream buffer;
+    std::streambuf* oldCout = std::cout.rdbuf(buffer.rdbuf());
+    bst->printLevels();
+    std::cout.rdbuf(oldCout);
+    
+    std::string expected = " Level 0: 11\n Level 1: 1 100\n Level 2: -1 6\n Level 3: -10";
+    assert(buffer.str() == expected);
+
+	std::cout << "PrintLevels test passed!" << endl;
+}
+
 
 // cout << "(1.2) Print BST in level order: " << endl;
 // bst->printLevels();
@@ -74,9 +84,9 @@ int main(int argc, char** argv)
     try {
         if (testName == "InOrderTraversal") {
             testInOrderTraversal(bst);
-		// }
-		// else if (testName == "PrintLevels") {
-		// 	testPrintLevels(bst);
+		}
+		else if (testName == "PrintLevels") {
+			testPrintLevels(bst);
 		// }
 		// else if (testName == "TestContain") {
 		// 	testContain(bst);
