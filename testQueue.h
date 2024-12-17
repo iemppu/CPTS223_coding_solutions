@@ -20,7 +20,7 @@ Expected Result: queue::size() returns the correct size of the queue at each ste
 Actual Result: queue::size() returns the correct size of the queue at each step: 0 -> 1 -> 2 -> 1.
 Status: passed
 */
-void testSize_CSQ(void);
+void testSize_QSC(void);
 
 
 /* Test ID: Empty queue check - EQC
