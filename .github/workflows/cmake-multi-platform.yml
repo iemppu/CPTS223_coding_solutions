@@ -82,27 +82,21 @@ jobs:
       
     - name: Run C++ program TestSearchByKey
       run: |
-        $exePath = "${{ steps.strings.outputs.build-output-dir }}/${{ matrix.build_type }}/MA3.exe"
-        if (Test-Path $exePath) {
-            Write-Output "Running: $exePath TestSearchByKey"
-            & $exePath TestSearchByKey
-        } else {
-            Write-Error "Executable not found: $exePath"
-            exit 1
-        }
-      shell: powershell
+        if [ "${{ runner.os }}" == "Windows" ]; then
+            ./build/${{ matrix.build_type }}/MA3.exe TestSearchByKey
+          else
+            ./build/${{ matrix.build_type }}/MA3 TestSearchByKey
+          fi
+        shell: bash
 
     - name: Run C++ program TestDeleteByKey
       run: |
-        $exePath = "${{ steps.strings.outputs.build-output-dir }}/${{ matrix.build_type }}/MA3.exe"
-        if (Test-Path $exePath) {
-            Write-Output "Running: $exePath TestDeleteByKey"
-            & $exePath TestDeleteByKey
-        } else {
-            Write-Error "Executable not found: $exePath"
-            exit 1
-        }
-      shell: powershell
+        if [ "${{ runner.os }}" == "Windows" ]; then
+            ./build/${{ matrix.build_type }}/MA3.exe TestDeleteByKey
+          else
+            ./build/${{ matrix.build_type }}/MA3 TestDeleteByKey
+          fi
+        shell: bash
       
     - name: Test
       working-directory: ${{ steps.strings.outputs.build-output-dir }}
