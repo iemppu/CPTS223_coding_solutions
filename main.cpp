@@ -3,16 +3,17 @@
 #include <chrono>
 #include <cmath>
 #include <random>
+#include <cassert>
 #include "BST.h"
 
 
 void testInOrderTraversal(BST<int>* bst) {
-    stringstream buffer;
-    streambuf* oldCout = std::cout.rdbuf(buffer.rdbuf());
+    std::stringstream buffer;
+    std::streambuf* oldCout = std::cout.rdbuf(buffer.rdbuf());
     bst->printInOrder();
     std::cout.rdbuf(oldCout);
     
-    string expected = "-10 -> -1 -> 1 -> 6 -> 11 -> 100 ->";
+    std::string expected = "-10 -> -1 -> 1 -> 6 -> 11 -> 100 ->";
     assert(buffer.str() == expected);
 
         std::cout << "printInOrder test passed!" << endl;
