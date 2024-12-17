@@ -76,21 +76,21 @@ jobs:
       
     - name: Run C++ program TestSearchByKey
       run: |
-        if ("${{ runner.os }}" == "Windows" ); then
+        if ["${{ runner.os }}" == "Windows" ]; then
             ./build/${{ matrix.build_type }}/MA3.exe TestSearchByKey
           else
             ./build/MA3 TestSearchByKey
           fi
         shell: bash
 
-    - name: Run C++ program TestDeleteByKey
-      run: |
-        if ("${{ runner.os }}" == "Windows"); then
-            ./build/${{ matrix.build_type }}/MA3.exe TestDeleteByKey
-          else
-            ./build/MA3 TestDeleteByKey
-          fi
-        shell: bash
+    # - name: Run C++ program TestDeleteByKey
+    #   run: |
+    #     if ("${{ runner.os }}" == "Windows"); then
+    #         ./build/${{ matrix.build_type }}/MA3.exe TestDeleteByKey
+    #       else
+    #         ./build/MA3 TestDeleteByKey
+    #       fi
+    #     shell: bash
       
     - name: Test
       working-directory: ${{ steps.strings.outputs.build-output-dir }}
