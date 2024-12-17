@@ -81,4 +81,4 @@ jobs:
       run: ctest --build-config ${{ matrix.build_type }}
 
     - name: Run C++ program
-      run: ./build/MA3
+      run: ./build/MA3 TestSearchByKey
