@@ -1,6 +1,6 @@
 #include <map>
 #include <unordered_map>
-#include "generateUsers.hpp"
+#include "generate_users.hpp"
 using namespace std;
 
 
