@@ -74,7 +74,7 @@ int main(int argc, char** argv)
     try {
         if (testName == "InOrderTraversal") {
             testInOrderTraversal(bst);
-		}
+		// }
 		// else if (testName == "PrintLevels") {
 		// 	testPrintLevels(bst);
 		// }
