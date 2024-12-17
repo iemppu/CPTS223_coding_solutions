@@ -8,17 +8,17 @@
 
 void testInOrderTraversal(BST<int>* bst) {
     stringstream buffer;
-    streambuf* oldCout = cout.rdbuf(buffer.rdbuf());
+    streambuf* oldCout = std::cout.rdbuf(buffer.rdbuf());
     bst->printInOrder();
-    cout.rdbuf(oldCout);
+    std::cout.rdbuf(oldCout);
     
     string expected = "-10 -> -1 -> 1 -> 6 -> 11 -> 100 ->";
     assert(buffer.str() == expected);
 
-        cout << "printInOrder test passed!" << endl;
+        std::cout << "printInOrder test passed!" << endl;
 }
-cout << "(1.1) Print BST (in-order traversal): " << endl << " ";
-bst->printInOrder();
+// cout << "(1.1) Print BST (in-order traversal): " << endl << " ";
+// bst->printInOrder();
 // cout << endl;
 
 // cout << "(1.2) Print BST in level order: " << endl;
