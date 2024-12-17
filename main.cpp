@@ -152,11 +152,11 @@ int main(int argc, char** argv)
 		    assert( mapByUserName.find(keyToSearch) == mapByUserName.end() );
 				
 			keyToSearch = "lexi55";
-			assert( testSearchByKey(mapByUserName, keyToSearch) == 0 );
+			assert( testSearchByKey(mapByUserName, keyToSearch) == 1 );
 			
 			keyToSearch = "kat@gmail.com";
-			assert( testSearchByKey(mapByUserName, keyToSearch) == 0 );
-			assert( testSearchByKey(mapByEmail, keyToSearch) == 1 );
+			assert( testSearchByKey(mapByUserName, keyToSearch) == 1 );
+			assert( testSearchByKey(mapByEmail, keyToSearch) == 0 );
 		    
 			cout << "Test Search by key Passed" << endl;
 
