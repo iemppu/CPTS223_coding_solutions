@@ -1,29 +1,57 @@
 #include "queue.h"
 #include "testQueue.h"
 #include <limits>
-void testSize(void){
-    queue main;
+#include <cassert>
+
+void testSize_CSQ(void) {
+    cout << "Running Test: Check size of queue - CSQ" << endl;
     
-    if(main.size() == 0){
-        cout << "passed size test case\n";
-    }
-    else{
-        cout << "failed size test case\n";
-    }
+    // Step 1: Construct an empty queue object
+    queue q;
+
+    // Step 2: Verify that queue::size() returns 0.  
+    assert(q.size() == 0);
+    cout << "Step 2 Passed: Initial queue size is 0" << endl;
+
+    // Step 3: Enqueue one element into the queue. 
+    q.enqueue(10);
+
+    // Step 4: Verify that queue::size() returns 1.  
+    assert(q.size() == 1);
+    cout << "Step 4 Passed: Queue size is 1 after enqueueing one element" << endl;
+
+    // Step 5: Enqueue another element into the queue.  
+    q.enqueue(20);
+
+    // Step 6: Verify that queue::size() returns 2.  
+    assert(q.size() == 2);
+    cout << "Step 6 Passed: Queue size is 2 after enqueueing two elements" << endl;
+
+    // Step 7: Dequeue one element from the queue.  
+    q.dequeue();
+
+    // Step 8: Verify that queue::size() returns 1.  
+    assert(q.size() == 1);
+    cout << "Step 8 Passed: Queue size is 1 after dequeuing one element" << endl;
+
+    cout << "Test Passed: Check size of queue - CSQ" << endl;
 }
 
-void testEmpty(void){
-    queue main;
+void testEmpty_EQC(void) {
+    cout << "Running Test: Empty queue check - EQC" << endl;
+
+    // Step 1: Construct an empty queue object
+    queue q;
     
-    if(main.isEmpty() == true){
-        cout << "passed empty test case\n";
-    }
-    else{
-        cout << "failed empty test case\n";
-    }
+    // Step 2: Call queue::isEmpty()
+    // Step 3: Verify that the return value by queue::isEmpty() equals 1
+    assert(q.isEmpty() == 1);
+    cout << "Step 3 Passed: Queue is empty" << endl;
+
+    cout << "Test Passed: Empty queue check - EQC" << endl;
 }
 
-void testFULL(void){
+void testFull_FQC(void){
 
     queue main;
     for(int i = 0;i<10;i+=1){
@@ -37,7 +65,7 @@ void testFULL(void){
     }
 }
 
-void testEnqueue(void){
+void testEnqueue_ENC1(void){
 
     queue main;
     main.enqueue(0);
@@ -49,12 +77,8 @@ void testEnqueue(void){
     }
     
     
-    
-    
-    
-    
 }
-void testEnqueueFull(void){
+void testEnqueueFull_ENC2(void){
 
     queue main;
     for(int i = 0;i<10;i+=1){
@@ -69,7 +93,9 @@ void testEnqueueFull(void){
         cout << "Enqueue failed second test case!";
     } 
 }
-void testDequeue(void){
+
+
+void testDequeue_DQC1(void){
 
     queue main;
     main.enqueue(0);
@@ -81,11 +107,11 @@ void testDequeue(void){
     }
     else{
         cout << "Dequeue failed first test case\n";
-    }
-    
-    
+    }     
 }
-void testDequeueEmpty(void){
+
+
+void testDequeueEmpty_DQC2(void){
 
     queue main;
     main.dequeue();
@@ -97,7 +123,7 @@ void testDequeueEmpty(void){
     
     
 }
-void testPeek(void){
+void testPeek_PQC1(void){
 
     queue main;
     main.enqueue(999);
@@ -106,13 +132,11 @@ void testPeek(void){
     }
     else{
         cout << "Peek failed first test case\n";
-    }
-    
-
-
-    
+    }  
 }
-void testPeekEmpty(void){
+
+
+void testPeekEmpty_PQC2(void){
 
     queue main;
     if(main.peek() == numeric_limits<int>::min()){
@@ -120,9 +144,5 @@ void testPeekEmpty(void){
     }
     else{
         cout << "Peek failed second test case\n";
-    }
-    
-
-
-    
+    }    
 }
