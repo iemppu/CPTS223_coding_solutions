@@ -148,10 +148,10 @@ int main(int argc, char** argv)
 		}
 		else if (testName == "TestSearchByKey") {
 		    cout << "Run test: Search by key" << endl;
-			string keyToSearch = "smith55";
+			string keyToSearch = "lexi5";
 		    assert( mapByUserName.find(keyToSearch) == mapByUserName.end() );
 				
-			// keyToSearch = "smith555";
+			// keyToSearch = "lexi55";
 			// assert( testSearchByKey(mapByUserName, keyToSearch) == 0 );
 			
 			// keyToSearch = "kat@gmail.com";
@@ -163,7 +163,7 @@ int main(int argc, char** argv)
 		}
 		else if (testName == "TestDeleteByKey") {
 		    cout << "Run test: Delete by key" << endl;
-			string keyToDelete = "smith55";
+			string keyToDelete = "lexi5";
 		    assert(testDeleteByKey(mapByUserName, keyToDelete) == 1);
 
     		keyToDelete = "kat@gmail.com";
