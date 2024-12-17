@@ -40,7 +40,7 @@ int main(int argc, char** argv)
         if (test_name == "CSQ") {
             testSize_CSQ();
 		}
-		elsif (test_name == "EQC") {
+		else if (test_name == "EQC") {
 			testEmpty_EQC();
         } else {
             std::cerr << "Unknown test: " << test_name << std::endl;
