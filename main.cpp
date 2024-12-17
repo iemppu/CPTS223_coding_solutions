@@ -29,7 +29,7 @@ int main(int argc, char** argv)
 {
 
 	if (argc != 2) {
-        std::cerr << "Usage: " << argv[0] << " <test_name>" << std::endl;
+        std::cerr << "Usage: " << argv[0] << " <testName>" << std::endl;
         return 1;
     }
 
@@ -63,13 +63,13 @@ int main(int argc, char** argv)
 		else if (testName == "PQC2") {
 			testPeek_PQC2();
         } else {
-            std::cerr << "Unknown test: " << test_name << std::endl;
+            std::cerr << "Unknown test: " << testName << std::endl;
             return 1;
         }
 
-        std::cout << "Test Passed: " << test_name << std::endl;
+        std::cout << "Test Passed: " << testName << std::endl;
     } catch (const std::exception& e) {
-        std::cerr << "Test Failed: " << test_name << " - " << e.what() << std::endl;
+        std::cerr << "Test Failed: " << testName << " - " << e.what() << std::endl;
         return 1;
     }
 
