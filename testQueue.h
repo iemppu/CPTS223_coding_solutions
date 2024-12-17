@@ -1,4 +1,4 @@
-/* Test ID: Check size of queue - CSQ
+/* Test ID: Queue size check - QSC
 Unit: queue::size()
 Description: Verify that queue::size() correctly returns the number of elements in the queue.  
 Test Steps:  
@@ -59,7 +59,7 @@ Status: passed
 void testFull_FQC(void);
 
 
-/*Test ID: Enqueue queue check - ENC1
+/*Test ID: Enqueue check - ENC1
 Unit: queue::enqueue()
 Description: test to determine if queue::enqueue() adds an item to the queue
 Test steps:
@@ -86,7 +86,7 @@ Status: passed
 void testEnqueue_ENC1(void);
 
 
-/*Test ID: Enqueue queue check - ENC2
+/*Test ID: Enqueue check (full queue) - ENC2
 Unit: queue::enqueue()
 Description: test to determine if queue::enqueue() does not add any item to a full queue
 Test steps:
@@ -132,7 +132,7 @@ Status: passed
 void testDequeue_DQC1(void);
 
 
-/*Test ID: Dequeue queue check - DQC2
+/*Test ID: Dequeue queue check (empty queue) - DQC2
 Unit: queue::dequeue()
 Description: test to determine if queue::dequeue() does not do anything if called on empty queue
 Test steps:
@@ -168,8 +168,8 @@ Status: passed
 void testPeek_PQC1(void);
 
 
-/*Test ID: peek queue check - PQC2
-Unit: queue::peek ()
+/*Test ID: peek queue check (empty queue) - PQC2
+Unit: queue::peek()
 Description: test to determine if queue::peek() returns minimum int on empty queue
 Test steps:
   1. Construct an empty queue object
