@@ -149,6 +149,10 @@ int main(int argc, char** argv)
 		else if (testName == "TestSearchByKey") {
 		    cout << "Run test: Search by key" << endl;
 			string keyToSearch = "rangerPower";
+			if (mapByUserName.find(keyToSearch) != mapByUserName.end()) {
+				std::cout << "passed" << std::endl;
+			}
+			else {std::cout << "failed" << std::endl;}
 		    // assert( mapByUserName.find(keyToSearch) != mapByUserName.end() );
 				
 			// keyToSearch = "lexi55";
