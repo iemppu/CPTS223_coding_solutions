@@ -10,7 +10,7 @@ enable_testing()
 add_executable(MA1 main.cpp testQueue.cpp)
 target_link_libraries(MA1 PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
-add_test(NAME testSize COMMAND MA1 CSQ)
+add_test(NAME testSize COMMAND MA1 QSC)
 add_test(NAME testEmpty COMMAND MA1 EQC)
 add_test(NAME testFull COMMAND MA1 FQC)
 add_test(NAME testEnqueue COMMAND MA1 ENC1)
