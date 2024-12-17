@@ -32,33 +32,43 @@ void testPrintLevels(BST<int>* bst) {
 	std::cout << "PrintLevels test passed!" << endl;
 }
 
+void testContain(BST<int>* bst) {
+	assert(bst->contains(100) == 1);
+	assert(bst->contains(9) == 0);
 
-// cout << "(1.2) Print BST in level order: " << endl;
-// bst->printLevels();
+	std::cout << "Contain test passed!" << endl;
+}
 
-// cout << "(1.3) Is 100 in BST? true (1) or false (0): " << bst->contains(100) << endl;
+void testSize(BST<int>* bst) {
+	assert(bst->treeSize() == 6);
 
-// cout << "(1.4) Is 9 in BST? true (1) or false (0): " << bst->contains(9) << endl;
+	std::cout << "Size test passed!" << endl;
+}
 
-// cout << "(1.5) BST size: " << bst->treeSize() << endl;
+void testHeight(BST<int>* bst) {
+	assert(bst->treeHeight() == 3);
 
-// cout << "(1.6) Height of BST: " << bst->treeHeight() << endl;
+	std::cout << "Height test passed!" << endl;
+}
 
-// cout << "(1.7) Print max path: " << endl << " ";
-// bst->printMaxPath();
-// cout << endl;
+void testPrintMaxPath(BST<int>* bst) {
+	std::stringstream buffer;
+    std::streambuf* oldCout = std::cout.rdbuf(buffer.rdbuf());
+    bst->printMaxPath();
+    std::cout.rdbuf(oldCout);
+    
+    std::string expected = " 11 -> 1 -> -1 -> -10 -> </s>\n";
+    assert(buffer.str() == expected);
 
-// bst->remove(11);
-// cout << "(1.8) Removing 11, print BST (in-order traversal): " << endl << " ";
-// bst->printInOrder();
-// cout << endl;
+	std::cout << "PrintMaxPath test passed!" << endl;
+}
 
-// cout << "(1.9) Print BST in level order: " << endl;
-// bst->printLevels();
+void testDelete(BST<int>* bst) {
+	bst->remove(11);
+	assert(bst->contains(11) == 0);
 
-// cout << "(1.10) BST size: " << bst->treeSize() << endl;
-
-
+	std::cout << "Delete test passed!" << endl;
+}
 
 int main(int argc, char** argv)
 {
@@ -87,21 +97,21 @@ int main(int argc, char** argv)
 		}
 		else if (testName == "PrintLevels") {
 			testPrintLevels(bst);
-		// }
-		// else if (testName == "TestContain") {
-		// 	testContain(bst);
-		// }
-		// else if (testName == "TestSize") {
-		// 	testSize(bst);
-		// }
-		// else if (testName == "TestHeight") {
-		// 	testHeigth(bst);
-		// }
-		// else if (testName == "PrintMaxPath") {
-		// 	testPrintMaxPath(bst);
-		// }
-		// else if (testName == "TestDelete") {
-		// 	testDelete(bst);
+		}
+		else if (testName == "TestContain") {
+			testContain(bst);
+		}
+		else if (testName == "TestSize") {
+			testSize(bst);
+		}
+		else if (testName == "TestHeight") {
+			testHeigth(bst);
+		}
+		else if (testName == "PrintMaxPath") {
+			testPrintMaxPath(bst);
+		}
+		else if (testName == "TestDelete") {
+			testDelete(bst);
         } else {
             std::cerr << "Unknown test: " << testName << std::endl;
             return 1;
