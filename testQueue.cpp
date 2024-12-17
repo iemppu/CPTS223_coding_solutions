@@ -4,9 +4,7 @@
 #include <cassert>
 
 void testSize_QSC(void) {
-    cout << "Running Test: Check size of queue - QSC" << endl;
-    
-    
+   
 }
 
 void testEmpty_EQC(void) {
