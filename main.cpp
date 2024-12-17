@@ -117,7 +117,7 @@ void testBuildMap(map<string, User>* mapByUserName, int numUsers) {
 
 
 
-int main()
+int main(int argc, char** argv)
 {
     int numUsers = 10;
     vector<User> users = generateUsers(numUsers);
@@ -135,7 +135,7 @@ int main()
 
     try {
         if (testName == "testBuildMap") {
-            testBuildMap(&mapByUserName);
+            testBuildMap(&mapByUserName, numUsers);
 		// }
 		// else if (testName == "PrintLevels") {
 		// 	testPrintLevels(bst);
