@@ -11,4 +11,4 @@ add_executable(MA2 main.cpp)
 
 target_link_libraries(MA2 PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
-add_test(NAME testInOrderTraversal COMMAND MA2 testInOrderTraversal)
+add_test(NAME testInOrderTraversal COMMAND MA2 InOrderTraversal)
