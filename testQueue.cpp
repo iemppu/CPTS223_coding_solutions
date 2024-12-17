@@ -86,7 +86,7 @@ void testEnqueue_ENC1(void) {
     cout << "Step 4 Passed: Queue front is 10" << endl;
     
     // Step 5: Call queue::enqueue(20) to add another item to the queue. 
-    q::enqueue(20);
+    q.enqueue(20);
     
     // Step 6: Call queue::size() to verify if queue size equals 2  
     assert(q.size() == 2);
