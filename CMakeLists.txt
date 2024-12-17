@@ -7,7 +7,7 @@ set(CMAKE_BUILD_TYPE Debug)
 
 enable_testing()
 
-add_executable(MA1 main.cpp test_queue.cpp queue.cpp)
+add_executable(MA1 main.cpp test_queue.cpp my_queue.cpp)
 target_link_libraries(MA1 PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
 add_test(NAME testSize COMMAND MA1 QSC)
