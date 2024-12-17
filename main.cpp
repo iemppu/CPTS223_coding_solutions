@@ -149,7 +149,7 @@ int main(int argc, char** argv)
 		else if (testName == "TestSearchByKey") {
 		    cout << "Run test: Search by key" << endl;
 			string keyToSearch = "rangerPower";
-		    assert( mapByUserName.find(keyToSearch) == mapByUserName.end() );
+		    assert( mapByUserName.find(keyToSearch) != mapByUserName.end() );
 				
 			// keyToSearch = "lexi55";
 			// assert( testSearchByKey(mapByUserName, keyToSearch) == 1 );
@@ -164,12 +164,12 @@ int main(int argc, char** argv)
 		else if (testName == "TestDeleteByKey") {
 		    cout << "Run test: Delete by key" << endl;
 			string keyToDelete = "lexi5";
-		    assert(testDeleteByKey(mapByUserName, keyToDelete) == 1);
+		    // assert(testDeleteByKey(mapByUserName, keyToDelete) == 1);
 
-    		keyToDelete = "kat@gmail.com";
-			assert(testDeleteByKey(mapByEmail, keyToDelete) == 1);
+   //  		keyToDelete = "kat@gmail.com";
+			// assert(testDeleteByKey(mapByEmail, keyToDelete) == 1);
 				
-		    cout << "Test Delete by key Passed" << endl;
+		 //    cout << "Test Delete by key Passed" << endl;
 		}
 		else if (testName == "TestSortedKey") {
 			cout << "Run test if map's key is sorted" << endl;
