@@ -104,7 +104,7 @@ vector<User> readCSV(const string& fileName) {
 
 vector<User> generateUsers(int n) {
     srand(time(0)); // set a random seed
-    vector<User> users = readCSV("./existingData.csv");
+    vector<User> users = readCSV("./existing_data.csv");
     int numExist = users.size();
     for (int i = 0; i < n - numExist; ++i) {
         User user;
