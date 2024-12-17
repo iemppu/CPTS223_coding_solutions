@@ -75,7 +75,7 @@ void testEnqueue_ENC1(void) {
     queue q;
     
     // Step 2: Call queue::enqueue(10) to add an item to the queue.  
-    main.enqueue(10);
+    q.enqueue(10);
     
     // Step 3: Call queue::size() to verify if queue size equals 1
     assert(q.size() == 1);
