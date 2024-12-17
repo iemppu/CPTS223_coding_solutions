@@ -74,14 +74,17 @@ jobs:
       # Build your program with the given configuration. Note that --config is needed because the default Windows generator is a multi-config generator (Visual Studio generator).
       run: cmake --build ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }}
       
-    - name: Run C++ program TestSearchByKey
+    - name: Run C++ program TestSearchByKey (Windows)
+      if: runner.os == 'Windows'
       run: |
-        if ["${{ runner.os }}" == "Windows" ]; then
-            ./build/${{ matrix.build_type }}/MA3.exe TestSearchByKey
-          else
-            ./build/MA3 TestSearchByKey
-          fi
-        shell: bash
+        ./build/${{ matrix.build_type }}/MA3.exe TestSearchByKey
+      shell: bash
+      
+    - name: Run C++ program TestSearchByKey
+      if: runner.os != 'Windows'
+      run: |
+        ./build/MA3 TestSearchByKey
+      shell: bash
 
     # - name: Run C++ program TestDeleteByKey
     #   run: |
