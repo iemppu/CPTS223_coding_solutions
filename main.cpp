@@ -14,10 +14,6 @@ map<string, User> buildMapByUserName(vector<User> users) {
     return usersMap;
 }
 
-void testBuildMapByUserName() {
-
-}
-
 
 map<string, User> buildMapByEmail(vector<User> users) {
     map<string, User> usersMap;
@@ -113,7 +109,7 @@ void testBuildMap(map<string, User>* mapByUserName, int numUsers) {
         return;
     }
     else {
-        assert(mapByUserName->size() == numUsers);
+        assert(mapByUserName->size() == static_cast<size_t>(numUsers));
         cout << "Test build the map passed" << endl;
         return;
     }
