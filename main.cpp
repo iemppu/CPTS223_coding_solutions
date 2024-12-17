@@ -105,7 +105,7 @@ int main(int argc, char** argv)
 			testSize(bst);
 		}
 		else if (testName == "TestHeight") {
-			testHeigth(bst);
+			testHeight(bst);
 		}
 		else if (testName == "PrintMaxPath") {
 			testPrintMaxPath(bst);
