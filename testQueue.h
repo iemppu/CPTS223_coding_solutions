@@ -29,8 +29,7 @@ Description: test to determine if
 queue::isEmpty() returns 1 if a queue object is empty
 Test steps:
   1. Construct an empty queue object
-  2. Call queue::isEmpty()
-  3. Verify that the return value by queue::isEmpty() equals 1
+  2. Call queue::isEmpty() to verify that queue::isEmpty() returns 1
 Test data: size = 0
 Precondition: queue object is empty
 Postcondition: queue object is still empty
@@ -47,8 +46,7 @@ Description: test to determine if queue::isFull() returns 1 if a queue object is
 Test steps:
   1. Construct an empty queue object
   2. Call queue::enqueue() 10 times (recall its defined capacity SIZE = 10 in queue.h)
-  3. Call queue::isFull()
-  4. Verify that the return value of queue::isFull() equals 1
+  3. Call queue::isFull() to verify that queue:isFull() returns 1
 Test data: [0, 1, 2, ..., 9]  
 Precondition: queue object is empty (size = 0)
 Postcondition: queue object is full (size = SIZE)
@@ -65,10 +63,10 @@ Description: test to determine if queue::enqueue() adds an item to the queue
 Test steps:
   1. Construct an empty queue object
   2. Call queue::enqueue(10) to add an item to the queue.  
-  3. Call queue::size() to verify if queue size increases by 1 (to 1)
+  3. Call queue::size() to verify if queue size equals 1
   4. Call queue::peek() to verify if it returns the front element (10).  
   5. Call queue::enqueue(20) to add another item to the queue.  
-  6. Call queue::size() to verify if queue size increases by 1 (to 2)  
+  6. Call queue::size() to verify if queue size equals 2
   7. Call queue::peek() to verify if it returns the front element (10).  
 Test data: enqueue values 10 (step 2) and 20 (step 5)
 Precondition: queue object is empty
@@ -79,8 +77,8 @@ Expected result:
   3. queue::peek() correctly returns the front element.  
 Actual result: 
   1. queue::enqueue() adds 10 and 20 into the queue; 
-  2. queue::size() returns 0 (initial), 1 (after adding 10) and 2 (after adding 20);
-  3. queue:peek() returns 10 (after adding 10) and 10 (after adding 20)
+  2. queue::size() returns 1 (step 3) and 2 (step 6);
+  3. queue::peek() returns 10 (step 4) and 10 (step 7)
 Status: passed
 */
 void testEnqueue_ENC1(void);
@@ -92,17 +90,16 @@ Description: test to determine if queue::enqueue() does not add any item to a fu
 Test steps:
   1. Construct an empty queue object
   2. Call queue::enqueue() 10 times (recall its defined capacity SIZE = 10 in queue.h)
-  3. Call queue::size() to verify if queue size is 10
+  3. Call queue::size() to verify that queue::size() returns 10
   4. Call queue::enqueue() once
-  5. Call queue::size()
-  6. Verify that the return value by queue::size() equals 10 (both step 3 and 5)
+  5. Call queue::size() to verify that queue::size() returns 10
 Test data: 
   1. [0, 1, 2, ..., 9] for step 2
   2. 1 for step 4
 Precondition: queue object is empty
 Postcondition: queue object has 10 objects
-Expected result: queue in step 5 has same size as step 3
-Actual result: queue in step 5 has same size as step 3
+Expected result: queue::size() returns 10 in step 3 and step 5
+Actual result: queue::size() returns 10 in step 3 and step 5
 Status: passed
 */
 void testEnqueueFull_ENC2(void);
@@ -115,9 +112,8 @@ Test steps:
   1. Construct an empty queue object
   2. Call queue::enqueue() 3 times ([0, 1, 2])
   3. Call queue::dequeue() 
-  4. Call queue::size()
-  5. Call queue::peek()
-  6. Verify that the return value by queue::size() equals 2 (step 4) and the return value by queue::peek() equals 1 (step 5)
+  4. Call queue::size() to verify that queue::size() returns 2
+  5. Call queue::peek() to verify that queue::peek() returns 1
 Test data: [0, 1, 2] for step 2
 Precondition: queue object is empty
 Postcondition: queue object has 2 objects
@@ -138,8 +134,7 @@ Description: test to determine if queue::dequeue() does not do anything if calle
 Test steps:
   1. Construct an empty queue object
   2. Call queue::dequeue()
-  3. Call queue::size()
-  4. Verify that the return value by queue::size() equals 0
+  3. Call queue::size() to verify that queue::size() returns 0
 Test data: size = 0
 Precondition: queue object is empty
 Postcondition: queue object is empty
@@ -156,8 +151,7 @@ Description: test to determine if queue::peek() returns the value of the first o
 Test steps:
   1. Construct an empty queue object
   2. Call queue::enqueue() with the values [0, 1, 2]
-  3. Call queue::peek()
-  4. Verify that the return value by queue::peek() equals 0
+  3. Call queue::peek() to verify that queue::peek() returns 0
 Test data: [0, 1, 2]
 Precondition: queue object is empty
 Postcondition: queue object has 3 objects, with 0 at the front
@@ -173,8 +167,7 @@ Unit: queue::peek()
 Description: test to determine if queue::peek() returns minimum int on empty queue
 Test steps:
   1. Construct an empty queue object
-  2. Call queue::peek()
-  3. Verify that the return value by queue::peek() equals numeric_limits<int>::min()
+  2. Call queue::peek() to verify that queue::peek() returns numeric_limits<int>::min()
 Test data: size = 0
 Precondition: queue object is empty
 Postcondition: queue object is empty
