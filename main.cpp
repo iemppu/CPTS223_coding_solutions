@@ -14,7 +14,7 @@ void testInOrderTraversal(BST<int>* bst) {
     bst->printInOrder();
     std::cout.rdbuf(oldCout);
     
-    std::string expected = "-10 -> -1 -> 1 -> 6 -> 11 -> 100 ->";
+    std::string expected = "-10 -> -1 -> 1 -> 6 -> 11 -> 100 -> </s>";
     assert(buffer.str() == expected);
 
 	std::cout << "printInOrder test passed!" << endl;
