@@ -164,10 +164,10 @@ int main(int argc, char** argv)
 		else if (testName == "TestDeleteByKey") {
 		    cout << "Run test Delete by key" << endl;
 			string keyToDelete = "smith55";
-		    assert(testDeleteByKey(mapByUserName, keyToDelete) == 1)
+		    assert(testDeleteByKey(mapByUserName, keyToDelete) == 1);
 
     		keyToDelete = "kat@gmail.com";
-			assert(testDeleteByKey(mapByEmail, keyToDelete) == 1)
+			assert(testDeleteByKey(mapByEmail, keyToDelete) == 1);
 				
 		    cout << "Test Delete by key Passed" << endl;
 		}
