@@ -7,7 +7,7 @@ void testSize_QSC(void) {
     std::cout << "Running Test: Check size of queue - QSC" << std::endl;
     
     // Step 1: Construct an empty queue object
-    Queue q;
+    MyQueue q;
 
     // Step 2: Verify that Queue::size() returns 0.  
     assert(q.size() == 0);
@@ -41,7 +41,7 @@ void testEmpty_EQC(void) {
     std::cout << "Running Test: Empty queue check - EQC" << std::endl;
 
     // Step 1: Construct an empty queue object
-    Queue q;
+    MyQueue q;
     
     // Step 2: Call Queue::isEmpty() to verify that Queue::isEmpty() returns 1
     assert(q.isEmpty() == 1);
@@ -54,7 +54,7 @@ void testFull_FQC(void){
     std::cout << "Running Test: Full queue check - FQC" << estd::ndl;
     
     // Step 1: Construct an empty queue object
-    Queue q;
+    MyQueue q;
     
     // Step 2: Call Queue::enqueue() 10 times (recall its defined capacity SIZE = 10 in queue.h)
     for(int i = 0; i < 10; i++){
@@ -72,7 +72,7 @@ void testEnqueue_ENC1(void) {
     std::cout << "Running Test: Enqueue check - ENC1" << std::endl;
 
     // Step 1: Construct an empty queue object
-    Queue q;
+    MyQueue q;
     
     // Step 2: Call Queue::enqueue(10) to add an item to the queue.  
     q.enqueue(10);
@@ -104,7 +104,7 @@ void testEnqueueFull_ENC2(void) {
     std::cout << "Running Test: Enqueue check (full queue) - ENC2" << std::endl;
 
     // Step 1: Construct an empty queue object
-    Queue q;
+    MyQueue q;
     
     // Step 2: Call Queue::enqueue() 10 times (recall its defined capacity SIZE = 10 in queue.h)
     for(int i = 0; i < 10 ; i++) {
@@ -130,7 +130,7 @@ void testDequeue_DQC1(void){
     std::cout << "Running Test: Dequeue check - DQC1" << std::endl;
 
     // Step 1: Construct an empty queue object
-    Queue q;
+    MyQueue q;
     // Step 2: Call Queue::enqueue() 3 times ([0, 1, 2])
     q.enqueue(0);
     q.enqueue(1);
@@ -155,7 +155,7 @@ void testDequeueEmpty_DQC2(void){
     std::cout << "Running Test: Dequeue check (empty queue) - DQC2" << std::endl;
     
     // Step 1: Construct an empty queue object
-    Queue q;
+    MyQueue q;
     
     // Step 2: Call Queue::dequeue()
     q.dequeue();
@@ -171,7 +171,7 @@ void testPeek_PQC1(void){
     std::cout << "Running Test: peek queue check - PQC1" << std::endl;
     
     // Step 1. Construct an empty Queue object
-    Queue q;
+    MyQueue q;
     
     // Step 2. Call Queue::enqueue() with the values [0, 1, 2]
     q.enqueue(0);
@@ -190,11 +190,11 @@ void testPeekEmpty_PQC2(void){
     std::cout << "Running Test: peek queue check (empty queue) - PQC2" << std::endl;
 
     // Step 1. Construct an empty queue object
-    queue q;
+    MyQueue q;
     
-    // Step 2. Call Queue::peek() to verify that Queue::peek() returns numeric_limits<int>::min()
-    assert(q.peek() == numeric_limits<int>::min());
-    std::cout << "Step 2 Passed: Queue front is numeric_limits<int>::min()" << std::endl;
+    // Step 2. Call Queue::peek() to verify that Queue::peek() returns std::numeric_limits<int>::min()
+    assert(q.peek() == std::numeric_limits<int>::min());
+    std::cout << "Step 2 Passed: Queue front is std::numeric_limits<int>::min()" << std::endl;
     
     std::cout << "Test Passed: peek queue check (empty queue) - PQC2" << std::endl;
 }
