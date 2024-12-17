@@ -78,7 +78,7 @@ jobs:
       run: |
         echo "Listing build-output-dir:"
         Get-ChildItem -Recurse -Path ${{ steps.strings.outputs.build-output-dir }}
-      shell: powershell
+      shell: bash
       
     - name: Run C++ program TestSearchByKey
       run: |
