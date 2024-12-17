@@ -26,7 +26,7 @@ void testPrintLevels(BST<int>* bst) {
     bst->printLevels();
     std::cout.rdbuf(oldCout);
     
-    std::string expected = " Level 0: 11\n Level 1: 1 100\n Level 2: -1 6\n Level 3: ";
+    std::string expected = " Level 0: 11\n Level 1: 1 100\n Level 2: -1 6\n Level 3: -10\n";
     assert(buffer.str() == expected);
 
 	std::cout << "PrintLevels test passed!" << endl;
