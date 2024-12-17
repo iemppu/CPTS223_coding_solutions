@@ -3,7 +3,7 @@
 #include <limits>
 #include <cassert>
 
-void testSize_CSQ(void) {
+void testSize_QSC(void) {
     cout << "Running Test: Check size of queue - CSQ" << endl;
     
     // Step 1: Construct an empty queue object
