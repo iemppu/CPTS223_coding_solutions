@@ -57,7 +57,7 @@ void testPrintMaxPath(BST<int>* bst) {
     bst->printMaxPath();
     std::cout.rdbuf(oldCout);
     
-    std::string expected = " 11 -> 1 -> -1 -> -10 -> </s>\n";
+    std::string expected = " 11 -> 1 -> -1 -> -10 -> </s>";
     assert(buffer.str() == expected);
 
 	std::cout << "PrintMaxPath test passed!" << endl;
