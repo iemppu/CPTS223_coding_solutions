@@ -52,14 +52,14 @@ bool isMapSorted(map<string, User> aMap) {
 
 }
 
-// bool testSearchByKey(map<string, User>& aMap, string keyToSearch) {
-//     auto iter = aMap.find(keyToSearch);
+bool testSearchByKey(map<string, User>& aMap, string keyToSearch) {
+    auto iter = aMap.find(keyToSearch);
 
-//     if (iter != aMap.end())
-//         return true; 
-//     else
-//         return false; 
-// }
+    if (iter != aMap.end())
+        return true; 
+    else
+        return false; 
+}
 
 bool testDeleteByKey(map<string, User> aMap, string keyToDelete) {
     auto iter = aMap.find(keyToDelete);
