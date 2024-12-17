@@ -149,7 +149,7 @@ int main(int argc, char** argv)
 		else if (testName == "TestSearchByKey") {
 		    cout << "Run test: Search by key" << endl;
 			string keyToSearch = "smith55";
-		    // assert( testSearchByKey(mapByUserName, keyToSearch) == 1 );
+		    assert( testSearchByKey(mapByUserName, keyToSearch) == true );
 				
 			// keyToSearch = "smith555";
 			// assert( testSearchByKey(mapByUserName, keyToSearch) == 0 );
