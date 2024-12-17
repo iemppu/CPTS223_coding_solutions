@@ -85,7 +85,7 @@ vector<User> readCSV(const string& fileName) {
         getline(ss, firstName, ',');
         getline(ss, email, ',');
         getline(ss, numPostsStr, ',');
-        getline(ss, mostViewedCategory, ',');
+        getline(ss, mostViewedCategory, '\n');
 
         user.userName = userName;
         user.lastName = lastName;
