@@ -16,8 +16,8 @@ class Queue
 	int count;		// current size of the queue
 
 public:
-	queue(int size = SIZE); 	// constructor
-	~queue();   				// destructor
+	Queue(int size = SIZE); 	// constructor
+	~Queue();   			// destructor
 
 	void dequeue();
 	void enqueue(int x);
