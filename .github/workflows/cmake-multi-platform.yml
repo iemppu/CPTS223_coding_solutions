@@ -74,11 +74,39 @@ jobs:
       # Build your program with the given configuration. Note that --config is needed because the default Windows generator is a multi-config generator (Visual Studio generator).
       run: cmake --build ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }}
 
+    - name: List build directory
+      run: |
+        echo "Listing build-output-dir:"
+        Get-ChildItem -Recurse -Path ${{ steps.strings.outputs.build-output-dir }}
+      shell: powershell
+      
+    - name: Run C++ program TestSearchByKey
+      run: |
+        $exePath = "${{ steps.strings.outputs.build-output-dir }}/${{ matrix.build_type }}/MA3.exe"
+        if (Test-Path $exePath) {
+            Write-Output "Running: $exePath TestSearchByKey"
+            & $exePath TestSearchByKey
+        } else {
+            Write-Error "Executable not found: $exePath"
+            exit 1
+        }
+      shell: powershell
+
+    - name: Run C++ program TestDeleteByKey
+      run: |
+        $exePath = "${{ steps.strings.outputs.build-output-dir }}/${{ matrix.build_type }}/MA3.exe"
+        if (Test-Path $exePath) {
+            Write-Output "Running: $exePath TestDeleteByKey"
+            & $exePath TestDeleteByKey
+        } else {
+            Write-Error "Executable not found: $exePath"
+            exit 1
+        }
+      shell: powershell
+      
     - name: Test
       working-directory: ${{ steps.strings.outputs.build-output-dir }}
       # Execute tests defined by the CMake configuration. Note that --build-config is needed because the default Windows generator is a multi-config generator (Visual Studio generator).
       # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
       run: ctest --build-config ${{ matrix.build_type }}
 
-    - name: Run C++ program
-      run: ${{ (matrix.os == 'windows-latest') && '.\build\MA3.exe TestSearchByKey' || './build/MA3 TestSearchByKey' }}
