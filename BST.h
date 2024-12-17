@@ -281,7 +281,7 @@ void BST<Comparable>::printLevels(BinaryNode * t) const {
     while (!q.empty()) {
         int levelSize = q.size(); // # of nodes in the current level
 
-        cout << " Level " << indexLevel << ": ";
+        cout << "Level " << indexLevel << ": ";
         // traversal on the current level
         for (int i = 0; i < levelSize; ++i) {
             BinaryNode* current = q.front();
