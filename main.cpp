@@ -139,7 +139,7 @@ int main(int argc, char** argv)
     try {
         if (testName == "TestBuildMap") {
             testBuildMap(&mapByUserName, numUsers);
-            testBuildMap(&mapByUserEmail, numUsers);
+            testBuildMap(&mapByEmail, numUsers);
 		}
 		else if (testName == "TestPrintByUserName") {
 			cout << "Print \"mapByUserName\" map:" << endl;
@@ -156,7 +156,7 @@ int main(int argc, char** argv)
 
 			keyToSearch = "kat@gmail.com";
 		    assert( testSearchByKey(mapByUserName, keyToSearch) == 0 );
-		    assert( testSearchByKey(mapByUserEmail, keyToSearch) == 1 );
+		    assert( testSearchByKey(mapByEmail, keyToSearch) == 1 );
 		    
 			cout << "Test Search by key Passed" << endl;
 
@@ -167,7 +167,7 @@ int main(int argc, char** argv)
 		    assert(testDeleteByKey(mapByUserName, keyToDelete) == 1)
 
     		keyToDelete = "kat@gmail.com";
-			assert(testDeleteByKey(mapByUserEmail, keyToDelete) == 1)
+			assert(testDeleteByKey(mapByEmail, keyToDelete) == 1)
 				
 		    cout << "Test Delete by key Passed" << endl;
 		}
