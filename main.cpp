@@ -4,6 +4,7 @@
 #include <cmath>
 #include <random>
 #include <cassert>
+#include <sstream>
 #include "BST.h"
 
 
@@ -16,7 +17,7 @@ void testInOrderTraversal(BST<int>* bst) {
     std::string expected = "-10 -> -1 -> 1 -> 6 -> 11 -> 100 ->";
     assert(buffer.str() == expected);
 
-        std::cout << "printInOrder test passed!" << endl;
+	std::cout << "printInOrder test passed!" << endl;
 }
 // cout << "(1.1) Print BST (in-order traversal): " << endl << " ";
 // bst->printInOrder();
