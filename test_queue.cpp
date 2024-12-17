@@ -51,7 +51,7 @@ void testEmpty_EQC(void) {
 }
 
 void testFull_FQC(void){
-    std::cout << "Running Test: Full queue check - FQC" << estd::ndl;
+    std::cout << "Running Test: Full queue check - FQC" << std::endl;
     
     // Step 1: Construct an empty queue object
     MyQueue q;
