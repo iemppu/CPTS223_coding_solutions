@@ -24,18 +24,45 @@ Poor Design Choices for Queue
 #include "testQueue.h"
 
 // main function
-int main()
+int main(int argc, char** argv)
 {
-	// call your test functions here!
-	testSize();
-	testEmpty();
-	testFULL();
-	testEnqueue();
-	testEnqueueFull();
-	testDequeue();
-	testDequeueEmpty();
-	testPeek();
-	testPeekEmpty();
-	return 0;
+
+	if (argc != 2) {
+        std::cerr << "Usage: " << argv[0] << " <test_name>" << std::endl;
+        return 1;
+    }
+
+    std::string test_name = argv[1];
+
+    try {
+        if (test_name == "CSQ") {
+            testSize_CSQ();
+		}
+		elsif (test_name == "EQC") {
+			testEmpty_EQC();
+        } else {
+            std::cerr << "Unknown test: " << test_name << std::endl;
+            return 1;
+        }
+
+        std::cout << "Test Passed: " << test_name << std::endl;
+    } catch (const std::exception& e) {
+        std::cerr << "Test Failed: " << test_name << " - " << e.what() << std::endl;
+        return 1;
+    }
+
+    return 0;
+	
+	// // call your test functions here!
+	// testSize();
+	// testEmpty();
+	// testFULL();
+	// testEnqueue();
+	// testEnqueueFull();
+	// testDequeue();
+	// testDequeueEmpty();
+	// testPeek();
+	// testPeekEmpty();
+	// return 0;
 }
 
