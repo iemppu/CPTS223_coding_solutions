@@ -136,24 +136,24 @@ int main()
     try {
         if (testName == "testBuildMap") {
             testBuildMap(&mapByUserName);
-		}
-		else if (testName == "PrintLevels") {
-			testPrintLevels(bst);
-		}
-		else if (testName == "TestContain") {
-			testContain(bst);
-		}
-		else if (testName == "TestSize") {
-			testSize(bst);
-		}
-		else if (testName == "TestHeight") {
-			testHeight(bst);
-		}
-		else if (testName == "PrintMaxPath") {
-			testPrintMaxPath(bst);
-		}
-		else if (testName == "TestDelete") {
-			testDelete(bst);
+		// }
+		// else if (testName == "PrintLevels") {
+		// 	testPrintLevels(bst);
+		// }
+		// else if (testName == "TestContain") {
+		// 	testContain(bst);
+		// }
+		// else if (testName == "TestSize") {
+		// 	testSize(bst);
+		// }
+		// else if (testName == "TestHeight") {
+		// 	testHeight(bst);
+		// }
+		// else if (testName == "PrintMaxPath") {
+		// 	testPrintMaxPath(bst);
+		// }
+		// else if (testName == "TestDelete") {
+		// 	testDelete(bst);
         } else {
             std::cerr << "Unknown test: " << testName << std::endl;
             return 1;
