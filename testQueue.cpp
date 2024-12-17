@@ -43,106 +43,158 @@ void testEmpty_EQC(void) {
     // Step 1: Construct an empty queue object
     queue q;
     
-    // Step 2: Call queue::isEmpty()
-    // Step 3: Verify that the return value by queue::isEmpty() equals 1
+    // Step 2: Call queue::isEmpty() to verify that queue::isEmpty() returns 1
     assert(q.isEmpty() == 1);
-    cout << "Step 3 Passed: Queue is empty" << endl;
+    cout << "Step 2 Passed: Queue is empty" << endl;
 
     cout << "Test Passed: Empty queue check - EQC" << endl;
 }
 
 void testFull_FQC(void){
-
-    queue main;
-    for(int i = 0;i<10;i+=1){
-        main.enqueue(i);
-    }
-    if(main.isFull() == true){
-        cout << "passed full test case\n";
-    }
-    else{
-        cout << "failed full test case\n";
-    }
-}
-
-void testEnqueue_ENC1(void){
-
-    queue main;
-    main.enqueue(0);
-    if(main.size() == 1 && main.peek() == 0){
-        cout << "Enqueue passed first test case\n";
-    }
-    else{
-        cout << "Enqueue failed first test case\n";
+    cout << "Running Test: Full queue check - FQC" << endl;
+    
+    // Step 1: Construct an empty queue object
+    queue q;
+    
+    // Step 2: Call queue::enqueue() 10 times (recall its defined capacity SIZE = 10 in queue.h)
+    for(int i = 0; i < 10; i++){
+        q.enqueue(i);
     }
     
-    
-}
-void testEnqueueFull_ENC2(void){
+    // Step 3: Call queue::isFull() to verify that queue:isFull() returns 1
+    assert(q.isFull() == 1);
+    cout << "Step 2 Passed: Queue is full" << endl;
 
-    queue main;
-    for(int i = 0;i<10;i+=1){
-        main.enqueue(i);
+    cout << "Test Passed: Full queue check - FQC" << endl;
+}
+
+void testEnqueue_ENC1(void) {
+    cout << "Running Test: Enqueue check - ENC1" << endl;
+
+    // Step 1: Construct an empty queue object
+    queue q;
+    
+    // Step 2: Call queue::enqueue(10) to add an item to the queue.  
+    main.enqueue(10);
+    
+    // Step 3: Call queue::size() to verify if queue size equals 1
+    assert(q.size() == 1);
+    cout << "Step 3 Passed: Queue size is 1" << endl;
+    
+    // Step 4: Call queue::peek() to verify if it returns the front element (10).  
+    assert(q.peek() == 10);
+    cout << "Step 4 Passed: Queue front is 10" << endl;
+    
+    // Step 5: Call queue::enqueue(20) to add another item to the queue. 
+    queue::enqueue(20);
+    
+    // Step 6: Call queue::size() to verify if queue size equals 2  
+    assert(q.size() == 2);
+    cout << "Step 6 Passed: Queue size is 2" << endl;
+    
+    // Step 7: Call queue::peek() to verify if it returns the front element (10).  
+    assert(q.peek() == 10);
+    cout << "Step 7 Passed: Queue front is 10" << endl;
+
+    cout << "Test Passed: Enqueue check - ENC1" << endl;
+}
+
+
+void testEnqueueFull_ENC2(void) {
+    cout << "Running Test: Enqueue check (full queue) - ENC2" << endl;
+
+    // Step 1: Construct an empty queue object
+    queue q;
+    
+    // Step 2: Call queue::enqueue() 10 times (recall its defined capacity SIZE = 10 in queue.h)
+    for(int i = 0; i < 10 ; i++) {
+        q.enqueue(i);
     }
-    int cursize = main.size();
-    main.enqueue(1);
-    if(cursize == main.size()){
-        cout << "Enqueue passed second test case!";
-    }
-    else{
-        cout << "Enqueue failed second test case!";
-    } 
+    
+    // Step 3: Call queue::size() to verify if queue size is 10
+    assert(q.size() == 10);
+    cout << "Step 3 Passed: Queue size is 10" << endl;
+    
+    // Step 4: Call queue::enqueue() once
+    q.enqueue(1);
+    
+    // Step 5: Call queue::size() to verify that the return value by queue::size() equals 10 (both step 3 and 5)
+    assert(q.size() == 10);
+    cout << "Step 5 Passed: Queue size is 10" << endl;    
+
+    cout << "Test Passed: Enqueue check (full queue) - ENC2" << endl;
 }
 
 
 void testDequeue_DQC1(void){
+    cout << "Running Test: Dequeue check - DQC1" << endl;
 
-    queue main;
-    main.enqueue(0);
-    main.enqueue(1);
-    main.enqueue(2);
-    main.dequeue();
-    if(main.size() == 2 && main.peek() == 1){
-        cout << "Dequeue passed first test case\n";
-    }
-    else{
-        cout << "Dequeue failed first test case\n";
-    }     
+    // Step 1: Construct an empty queue object
+    queue q;
+    // Step 2: Call queue::enqueue() 3 times ([0, 1, 2])
+    q.enqueue(0);
+    q.enqueue(1);
+    q.enqueue(2);
+    
+    // Step 3: Call queue::dequeue() 
+    q.dequeue();
+    
+    // Step 4: Call queue::size() to verify that queue::size() returns 2
+    assert(q.size() == 2);
+    cout << "Step 4 Passed: Queue size is 2" << endl;
+    
+    // Step 5: Call queue::peek() to verify that queue::peek() returns 1
+    assert(q.peek() == 1);
+    cout << "Step 5 Passed: Queue front is 1" << endl;   
+
+    cout << "Test Passed: Dequeue check - DQC1" << endl;
 }
 
 
 void testDequeueEmpty_DQC2(void){
-
-    queue main;
-    main.dequeue();
-    if(main.size()==0){
-        cout << "Dequeue passed second test case\n";
-    }else{
-        cout << "Dequeue failed second test case\n";
-    }
+    cout << "Running Test: Dequeue check (empty queue) - DQC2" << endl;
     
+    // Step 1: Construct an empty queue object
+    queue q;
     
+    // Step 2: Call queue::dequeue()
+    q.dequeue();
+    
+    // Step 3: Call queue::size() to verify that queue::size() returns 0
+    assert(q.size() == 0);
+    
+    cout << "Test Passed: Dequeue check (empty queue) - DQC2" << endl;
 }
-void testPeek_PQC1(void){
 
-    queue main;
-    main.enqueue(999);
-    if(main.peek() == 999){
-        cout << "Peek passed first test case\n";
-    }
-    else{
-        cout << "Peek failed first test case\n";
-    }  
+
+void testPeek_PQC1(void){
+    cout << "Running Test: peek queue check - PQC1" << endl;
+    
+    // Step 1. Construct an empty queue object
+    queue q;
+    
+    // Step 2. Call queue::enqueue() with the values [0, 1, 2]
+    q.enqueue(0);
+    q.enqueue(1);
+    q.enqueue(2);
+    
+    // Step 3. Call queue::peek() to verify that queue::peek() returns 0
+    assert(q.peek() == 0);
+    cout << "Step 3 Passed: Queue front is 0" << endl;
+    
+    cout << "Test Passed: peek queue check - PQC1" << endl;
 }
 
 
 void testPeekEmpty_PQC2(void){
+    cout << "Running Test: peek queue check (empty queue) - PQC2" << endl;
 
-    queue main;
-    if(main.peek() == numeric_limits<int>::min()){
-        cout << "Peek passed second test case\n";
-    }
-    else{
-        cout << "Peek failed second test case\n";
-    }    
+    // Step 1. Construct an empty queue object
+    queue q;
+    
+    // Step 2. Call queue::peek() to verify that queue::peek() returns numeric_limits<int>::min()
+    assert(q.peek() == numeric_limits<int>::min());
+    cout << "Step 2 Passed: Queue front is numeric_limits<int>::min()" << endl;
+    
+    cout << "Test Passed: peek queue check (empty queue) - PQC2" << endl;
 }
