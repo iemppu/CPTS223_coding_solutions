@@ -166,9 +166,9 @@ int main(int argc, char** argv)
 			assert(!mapByUserName.empty());
 			
 			if (mapByUserName.find(keyToSearch) != mapByUserName.end()) {
-				std::cout << "passed" << std::endl;
+				std::cout << "kkk passed" << std::endl;
 			}
-			else {std::cout << "failed" << std::endl;}
+			else {std::cout << "kkk failed" << std::endl;}
 		    assert( mapByUserName.find(keyToSearch) != mapByUserName.end() );
 				
 			// keyToSearch = "lexi55";
