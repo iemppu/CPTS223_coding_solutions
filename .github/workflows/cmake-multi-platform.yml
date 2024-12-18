@@ -24,7 +24,7 @@ jobs:
       # To add more build types (Release, Debug, RelWithDebInfo, etc.) customize the build_type list.
       matrix:
         os: [macos-latest, ubuntu-latest, windows-latest]
-        build_type: [Release]
+        build_type: [Debug]
         c_compiler: [gcc, clang, cl]
         include:
           - os: windows-latest
@@ -73,9 +73,33 @@ jobs:
     - name: Build
       # Build your program with the given configuration. Note that --config is needed because the default Windows generator is a multi-config generator (Visual Studio generator).
       run: cmake --build ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }}
-
+    
+    - name: Run C++ program tests (Windows)
+      if: runner.os == 'Windows'
+      run: |
+        ./build/${{ matrix.build_type }}/MA2.exe TestInOrderTraversal
+        ./build/${{ matrix.build_type }}/MA2.exe TestPrintLevels
+        ./build/${{ matrix.build_type }}/MA2.exe TestContain
+        ./build/${{ matrix.build_type }}/MA2.exe TestSize
+        ./build/${{ matrix.build_type }}/MA2.exe TestHeight
+        ./build/${{ matrix.build_type }}/MA2.exe TestPrintMaxPath
+        ./build/${{ matrix.build_type }}/MA2.exe TestDelete
+      shell: bash
+            
+    - name: Run C++ program tests (non-Windows)
+      if: runner.os != 'Windows'
+      run: |
+        ./build/MA2 TestInOrderTraversal
+        ./build/MA2 TestPrintLevels
+        ./build/MA2 TestContain
+        ./build/MA2 TestSize
+        ./build/MA2 TestHeight
+        ./build/MA2 TestPrintMaxPath
+        ./build/MA2 TestDelete
+      shell: bash
+      
     - name: Test
       working-directory: ${{ steps.strings.outputs.build-output-dir }}
       # Execute tests defined by the CMake configuration. Note that --build-config is needed because the default Windows generator is a multi-config generator (Visual Studio generator).
       # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
-      run: ctest --build-config ${{ matrix.build_type }}
+      run: ctest --output-on-failure --build-config ${{ matrix.build_type }}
