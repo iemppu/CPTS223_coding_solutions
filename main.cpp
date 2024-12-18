@@ -123,11 +123,12 @@ int main(int argc, char** argv)
         if (testName == "TestBuildMap") {
             testBuildMap(&mapByUserName, numUsers);
             testBuildMap(&mapByEmail, numUsers);
+			std::cout << std::endl;
 		}
 		else if (testName == "TestPrintByUserName") {
 			std::cout << "Print \"mapByUserName\" map:" << std::endl;
 			printMap(mapByUserName);
-			std::cout << std::endl;
+			std::cout << std::endl << std::endl;
 		}
 		else if (testName == "TestSearchByKey") {
 			std::string keyToSearch = "smith55";
@@ -135,6 +136,7 @@ int main(int argc, char** argv)
 			
 			keyToSearch = "smitRick@gmail.com";
 			testSearchByKey(mapByEmail, keyToSearch);
+			std::cout << std::endl;
 		}
 		else if (testName == "TestDeleteByKey") {
 			std::string keyToDelete = "lexi5";
@@ -142,19 +144,21 @@ int main(int argc, char** argv)
 
     		keyToDelete = "kat@gmail.com";
 			testDeleteByKey(mapByEmail, keyToDelete);
+			std::cout << std::endl;
 		}
 		else if (testName == "TestSortedKey") {
 		    testMapSorted(mapByUserName);
+			std::cout << std::endl;
 		}
 		else if (testName == "TestPrintActiveUsers") {
 		    std::cout << "Print usernames with more than 800 tweets:" << std::endl;
 		    printActiveUsers(mapByUserName);
-		    std::cout << std::endl;
+		    std::cout << std::endl << std::endl;
 		}
 		else if (testName == "TestPrintMostPopularCategory") {
 		    std::cout << "Print the most popular category" << std::endl;
 		    printMostPopularCategory(mapByUserName);
-		    std::cout << std::endl;
+		    std::cout << std::endl << std::endl;
         } else {
             std::cerr << "Unknown test: " << testName << std::endl;
             return 1;
