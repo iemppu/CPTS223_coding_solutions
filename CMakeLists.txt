@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 project(MA2)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -Wall")
 set(CMAKE_BUILD_TYPE Debug)
 
@@ -19,3 +19,4 @@ add_test(NAME testHeight COMMAND MA2 TestHeight)
 add_test(NAME testPrintMaxPath COMMAND MA2 PrintMaxPath)
 add_test(NAME testDelete COMMAND MA2 TestDelete)
   
+set_tests_properties(testInOrderTraversal testPrintLevels testContain testSize testHeight testPrintMaxPath testDelete PROPERTIES WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
