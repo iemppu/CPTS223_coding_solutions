@@ -153,7 +153,7 @@ int main(int argc, char** argv)
 				std::cout << "passed" << std::endl;
 			}
 			else {std::cout << "failed" << std::endl;}
-		    // assert( mapByUserName.find(keyToSearch) != mapByUserName.end() );
+		    assert( mapByUserName.find(keyToSearch) != mapByUserName.end() );
 				
 			// keyToSearch = "lexi55";
 			// assert( testSearchByKey(mapByUserName, keyToSearch) == 1 );
