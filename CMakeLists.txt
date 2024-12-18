@@ -17,7 +17,7 @@ add_test(NAME testEnqueue COMMAND MA1 TestEnqueue_ENC1)
 add_test(NAME testEnqueueFull COMMAND MA1 TestEnqueueFull_ENC2)
 add_test(NAME testDequeue COMMAND MA1 TestDequeue_DQC1)
 add_test(NAME testDequeueEmpty COMMAND MA1 TestDequeueEmpty_DQC2)
-add_test(NAME testPeek COMMAND MA1 TestPeekPQC1)
+add_test(NAME testPeek COMMAND MA1 TestPeek_PQC1)
 add_test(NAME testPeekEmpty COMMAND MA1 TestPeekEmpty_PQC2)
 
 set_tests_properties(testSize testEmpty testFull testEnqueue testEnqueueFull testDequeue testDequeueEmpty testPeek testPeekEmpty PROPERTIES WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
