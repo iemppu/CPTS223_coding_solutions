@@ -17,7 +17,7 @@ void testBuildMap(const map<string, User>* mapByUserName, int numUsers) {
 	std::cout << "Run test: build the map" << std::endl;
 	assert(mapByUserName != nullptr && "Error: Null pointer received");
 
-	actualSize = static_cast<int>(mapByUserName->size());
+	int actualSize = static_cast<int>(mapByUserName->size());
 	assert(actualSize != numUsers && ("Test build the map failed: map size mismatch. Expected " +
             std::to_string(numUsers) + ", but got " + std::to_string(actualSize)).c_str());
 	std::cout << "Test build the map passed" << std::endl;
@@ -54,8 +54,8 @@ void testDeleteByKey(map<string, User>& aMap, const std::string& keyToDelete) {
 void testMapSorted(const map<string, User>& aMap) {
 	std::cout << "Run test: if map's keys are sorted" << std::endl;
     if ( aMap.empty() == false ) {
-	    map<string, User>::iterator iter = aMap.begin();
-	    map<string, User>::iterator prev = iter;  
+	    auto iter = aMap.begin();
+	    auto prev = iter;  
 	    ++iter; 
 	    while ( iter != aMap.end() ) {
 	        if ( iter->first <= prev->first ) {
@@ -73,7 +73,7 @@ void printActiveUsers(const map<string, User>& aMap) {
     const int activeThreshold = 800;
     for ( const auto & [key, user] : aMap) {
         if ( activeThreshold < user.numPosts )
-            std::cout << iter->user.userName << ": " << iter->user.numPosts << " tweets" << std::endl;
+            std::cout << user.userName << ": " << iter->user.numPosts << " tweets" << std::endl;
     }
 }
 
