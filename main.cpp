@@ -123,10 +123,6 @@ int main(int argc, char** argv)
 	std::map<int, std::string> myMap = {{1, "one"}, {2, "two"}, {3, "three"}};
 
     int keyToCheck = 2;
-
-    // 用 assert 验证键是否存在
-    assert(myMap.find(keyToCheck) != myMap.end() && "Key does not exist in the map!");
-
 	
     int numUsers = 10;
     vector<User> users = generateUsers(numUsers);
@@ -176,8 +172,11 @@ int main(int argc, char** argv)
 			if (mapByUserName.find(keyToSearch) != mapByUserName.end()) {
 				std::cout << "kkk passed" << std::endl;
 			}
-			else {std::cout << "kkk failed" << std::endl;}
-		    assert( it != mapByUserName.end() );
+			else {
+				std::cerr << "Key does not exist in the map!" << std::endl;
+    			return EXIT_FAILURE;
+			}
+		    // assert( it != mapByUserName.end() );
 				
 			// keyToSearch = "lexi55";
 			// assert( testSearchByKey(mapByUserName, keyToSearch) == 1 );
