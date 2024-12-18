@@ -24,7 +24,7 @@ jobs:
       # To add more build types (Release, Debug, RelWithDebInfo, etc.) customize the build_type list.
       matrix:
         os: [macos-latest, ubuntu-latest, windows-latest]
-        build_type: [Release]
+        build_type: [Debug]
         c_compiler: [gcc, clang, cl]
         include:
           - os: windows-latest
@@ -73,9 +73,37 @@ jobs:
     - name: Build
       # Build your program with the given configuration. Note that --config is needed because the default Windows generator is a multi-config generator (Visual Studio generator).
       run: cmake --build ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }}
-
+ 
+    - name: Run C++ program tests (Windows)
+      if: runner.os == 'Windows'
+      run: |
+        ./build/${{ matrix.build_type }}/MA1.exe testSize
+        ./build/${{ matrix.build_type }}/MA1.exe testEmpty
+        ./build/${{ matrix.build_type }}/MA1.exe testFull
+        ./build/${{ matrix.build_type }}/MA1.exe testEnqueue
+        ./build/${{ matrix.build_type }}/MA1.exe testEnqueueFull
+        ./build/${{ matrix.build_type }}/MA1.exe testDequeue
+        ./build/${{ matrix.build_type }}/MA1.exe testDequeueEmpty
+        ./build/${{ matrix.build_type }}/MA1.exe testPeek
+        ./build/${{ matrix.build_type }}/MA1.exe testPeekEmpty
+      shell: bash
+      
+    - name: Run C++ program tests (non-Windows)
+      if: runner.os != 'Windows'
+      run: |
+        ./build/MA1 testSize
+        ./build/MA1 testEmpty
+        ./build/MA1 testFull
+        ./build/MA1 testEnqueue
+        ./build/MA1 testEnqueueFull
+        ./build/MA1 testDequeue
+        ./build/MA1 testDequeueEmpty
+        ./build/MA1 testPeek
+        ./build/MA1 testPeekEmpty
+      shell: bash
+      
     - name: Test
       working-directory: ${{ steps.strings.outputs.build-output-dir }}
       # Execute tests defined by the CMake configuration. Note that --build-config is needed because the default Windows generator is a multi-config generator (Visual Studio generator).
       # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
-      run: ctest --build-config ${{ matrix.build_type }}
+      run: ctest --output-on-failure --build-config ${{ matrix.build_type }}
