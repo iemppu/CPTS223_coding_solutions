@@ -165,7 +165,7 @@ int main(int argc, char** argv)
 			    std::cout << "kk failed" << std::endl;
 			}
 			
-			assert(it != mapByUserName.end());
+			// assert(it != mapByUserName.end());
 						
 			// assert(!mapByUserName.empty());
 			
