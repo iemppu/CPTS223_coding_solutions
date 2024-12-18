@@ -39,28 +39,28 @@ int main(int argc, char** argv)
         if (testName == "QSC") {
             testSize_QSC();
 		}
-		else if (testName == "EQC") {
+		else if (testName == "TestEmpty_EQC") {
 			testEmpty_EQC();
 		}
-		else if (testName == "FQC") {
+		else if (testName == "TestFull_FQC") {
 			testFull_FQC();
 		}
-		else if (testName == "ENC1") {
+		else if (testName == "TestEnqueue_ENC1") {
 			testEnqueue_ENC1();
 		}
-		else if (testName == "ENC2") {
+		else if (testName == "TestEnqueueFull_ENC2") {
 			testEnqueueFull_ENC2();
 		}
-		else if (testName == "DQC1") {
+		else if (testName == "TestDequeue_DQC1") {
 			testDequeue_DQC1();
 		}
-		else if (testName == "DQC2") {
+		else if (testName == "TestDequeueEmpty_DQC2") {
 			testDequeueEmpty_DQC2();
 		}
-		else if (testName == "PQC1") {
+		else if (testName == "TestPeek_PQC1") {
 			testPeek_PQC1();
 		}
-		else if (testName == "PQC2") {
+		else if (testName == "TestPeekEmpty_PQC2") {
 			testPeekEmpty_PQC2();
         } else {
             std::cerr << "Unknown test: " << testName << std::endl;
