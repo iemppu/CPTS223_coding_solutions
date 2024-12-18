@@ -2,7 +2,7 @@
 #include <cassert>
 #include "generate_users.hpp"
 
-
+// TODO function 1
 map<string, User> buildMapByUserName(vector<User> users) {
     map<string, User> usersMap;
     for (int i = 0; i < users.size(); ++i)
@@ -12,14 +12,22 @@ map<string, User> buildMapByUserName(vector<User> users) {
     return usersMap;
 }
 
-map<string, User> buildMapByEmail(vector<User> users) {
-    map<string, User> usersMap;
-    for (int i = 0; i < users.size(); ++i) {
-        usersMap[users[i].email] = users[i];
+// TODO function 2
+void testBuildMap(map<string, User>* mapByUserName, int numUsers) {
+	std::cout << "Run test: build the map" << std::endl;
+    if (mapByUserName == nullptr) {
+        std::cout << "Error: Null pointer received." << std::endl;
+        assert(false && "Null pointer received");
+        return;
     }
-    return usersMap;
+    else {
+        assert(mapByUserName->size() == static_cast<size_t>(numUsers));
+        std::cout << "Test build the map passed" << std::endl;
+        return;
+    }
 }
 
+// TODO function 3
 void printMap(map<string, User> aMap) {
     int i = 0;
     for (auto elem : aMap) {
@@ -29,6 +37,33 @@ void printMap(map<string, User> aMap) {
     }
 }
 
+// TODO function 4
+bool testSearchByKey(map<string, User>& aMap, string keyToSearch) {
+    auto iter = aMap.find(keyToSearch);
+
+    if (iter != aMap.end())
+        return true; 
+    else
+        return false; 
+}
+
+// TODO function 5
+bool testDeleteByKey(map<string, User> aMap, string keyToDelete) {
+    auto iter = aMap.find(keyToDelete);
+
+    if (iter == aMap.end()) 
+        return false;
+    else {
+        aMap.erase(keyToDelete);
+        iter = aMap.find(keyToDelete);
+        if (iter == aMap.end())
+            return true; 
+        else
+            return false; 
+    }
+}
+
+// TODO function 6
 bool isMapSorted(map<string, User> aMap) {
     if ( aMap.empty() )
         return true;
@@ -48,30 +83,7 @@ bool isMapSorted(map<string, User> aMap) {
 
 }
 
-bool testSearchByKey(map<string, User>& aMap, string keyToSearch) {
-    auto iter = aMap.find(keyToSearch);
-
-    if (iter != aMap.end())
-        return true; 
-    else
-        return false; 
-}
-
-bool testDeleteByKey(map<string, User> aMap, string keyToDelete) {
-    auto iter = aMap.find(keyToDelete);
-
-    if (iter == aMap.end()) 
-        return false;
-    else {
-        aMap.erase(keyToDelete);
-        iter = aMap.find(keyToDelete);
-        if (iter == aMap.end())
-            return true; 
-        else
-            return false; 
-    }
-}
-
+// TODO function 7
 void printActiveUsers(map<string, User> aMap) {
     int activeThreshold = 800;
     for ( auto iter = aMap.begin(); iter != aMap.end(); iter++) {
@@ -80,6 +92,7 @@ void printActiveUsers(map<string, User> aMap) {
     }
 }
 
+// TODO function 8
 void printMostPopularCategory(map<string, User> aMap) {
     map<string, int> categoryMap;
     for ( auto iter = aMap.begin(); iter != aMap.end(); iter++ ) {
@@ -96,23 +109,14 @@ void printMostPopularCategory(map<string, User> aMap) {
     std::cout << "The most popular category is " << mostPopularCategory << ", which is " << num << " users' most viewed category." << std::endl;
 }
 
-
-
-void testBuildMap(map<string, User>* mapByUserName, int numUsers) {
-	std::cout << "Run test: build the map" << std::endl;
-    if (mapByUserName == nullptr) {
-        std::cout << "Error: Null pointer received." << std::endl;
-        assert(false && "Null pointer received");
-        return;
+// TODO function 9
+map<string, User> buildMapByEmail(vector<User> users) {
+    map<string, User> usersMap;
+    for (int i = 0; i < users.size(); ++i) {
+        usersMap[users[i].email] = users[i];
     }
-    else {
-        assert(mapByUserName->size() == static_cast<size_t>(numUsers));
-        std::cout << "Test build the map passed" << std::endl;
-        return;
-    }
+    return usersMap;
 }
-
-
 
 int main(int argc, char** argv)
 {
@@ -138,8 +142,10 @@ int main(int argc, char** argv)
 
     try {
         if (testName == "TestBuildMap") {
+			std::cout << "Run test build maps" << std::endl;
             testBuildMap(&mapByUserName, numUsers);
             testBuildMap(&mapByEmail, numUsers);
+			std::cout << "Test build maps Passed" << std::endl;
 		}
 		else if (testName == "TestPrintByUserName") {
 			std::cout << "Print \"mapByUserName\" map:" << std::endl;
@@ -147,48 +153,43 @@ int main(int argc, char** argv)
 			std::cout << std::endl;
 		}
 		else if (testName == "TestSearchByKey") {
-		    std::cout << "Run test: Search by key" << std::endl;
+		    std::cout << "Run test: search by key" << std::endl;
 			std::string keyToSearch = "smith55";
 			assert(testSearchByKey(mapByUserName, keyToSearch));
 			
 			keyToSearch = "smitRick@gmail.com";
 			assert(testSearchByKey(mapByEmail, keyToSearch));
 			
-			std::cout << "Test Search by key Passed" << std::endl;
-
+			std::cout << "Test search by key Passed" << std::endl;
 		}
 		else if (testName == "TestDeleteByKey") {
-		    std::cout << "Run test: Delete by key" << std::endl;
+		    std::cout << "Run test: delete by key" << std::endl;
 			std::string keyToDelete = "lexi5";
 		    assert(testDeleteByKey(mapByUserName, keyToDelete));
 
     		keyToDelete = "kat@gmail.com";
 			assert(testDeleteByKey(mapByEmail, keyToDelete));
 				
-		    std::cout << "Test Delete by key Passed" << std::endl;
+		    std::cout << "Test delete by key Passed" << std::endl;
 		}
 		else if (testName == "TestSortedKey") {
-			std::cout << "Run test if map's key is sorted" << std::endl;
+			std::cout << "Run test: if map's keys are sorted" << std::endl;
 		    assert(isMapSorted(mapByUserName) == 1);
-		    std::cout << "Test Sorted Key Passed" << std::endl;
-
+		    std::cout << "Test sorted map key Passed" << std::endl;
 		}
 		else if (testName == "TestPrintActiveUsers") {
-		    std::cout << "Run test print usernames with more than 800 tweets:" << std::endl;
+		    std::cout << "Print usernames with more than 800 tweets:" << std::endl;
 		    printActiveUsers(mapByUserName);
 		    std::cout << std::endl;
-			
 		}
 		else if (testName == "TestPrintMostPopularCategory") {
-		    std::cout << "Run test print the most popular category" << std::endl;
+		    std::cout << "Print the most popular category" << std::endl;
 		    printMostPopularCategory(mapByUserName);
 		    std::cout << std::endl;
         } else {
             std::cerr << "Unknown test: " << testName << std::endl;
             return 1;
         }
-
-        std::cout << "Test Passed: " << testName << std::endl;
     } catch (const std::exception& e) {
         std::cerr << "Test Failed: " << testName << " - " << e.what() << std::endl;
         return 1;
