@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 project(MA1)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -Wall")
 set(CMAKE_BUILD_TYPE Debug)
 
@@ -20,3 +20,4 @@ add_test(NAME testDequeueEmpty COMMAND MA1 DQC2)
 add_test(NAME testPeek COMMAND MA1 PQC1)
 add_test(NAME testPeekEmpty COMMAND MA1 PQC2)
 
+set_tests_properties(testSize testEmpty testFull testEnqueue testEnqueueFull testDequeue testDequeueEmpty testPeek testPeekEmpty PROPERTIES WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
