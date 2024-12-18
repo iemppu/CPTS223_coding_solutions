@@ -72,7 +72,7 @@ int main(int argc, char** argv)
     }
 
     std::string testName = argv[1];
-
+	std::cout << "Test starts: " << testName << std::endl;
     try {
         if (testName == "TestInOrderTraversal") {
             testInOrderTraversal(bst);
@@ -106,7 +106,7 @@ int main(int argc, char** argv)
             return 1;
         }
 
-        std::cout << "Test Passed: " << testName << std::endl;
+        std::cout << "Test Passed: " << testName << std::endl << std::endl;
     } catch (const std::exception& e) {
         std::cerr << "Test Failed: " << testName << " - " << e.what() << std::endl;
         return 1;
