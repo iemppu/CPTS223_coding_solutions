@@ -3,28 +3,26 @@
 #include "generate_users.hpp"
 
 // TODO function 1
-map<string, User> buildMapByUserName(vector<User> users) {
+map<string, User> buildMapByUserName(const vector<User>& users) {
     map<string, User> usersMap;
-    for (int i = 0; i < users.size(); ++i)
+    for (const auto& user : users)
     {
-        usersMap[users[i].userName] = users[i];
+        usersMap[user.userName] = user;
     }
     return usersMap;
 }
 
 // TODO function 2
-void testBuildMap(map<string, User>* mapByUserName, int numUsers) {
+void testBuildMap(const map<string, User>* mapByUserName, int numUsers) {
 	std::cout << "Run test: build the map" << std::endl;
     if (mapByUserName == nullptr) {
-        std::cout << "Error: Null pointer received." << std::endl;
-        assert(false && "Null pointer received");
-        return;
+        assert(false && "Error: Null pointer received");
     }
-    else {
-        assert(mapByUserName->size() == static_cast<size_t>(numUsers));
-        std::cout << "Test build the map passed" << std::endl;
-        return;
-    }
+    
+	if (static_cast<int>(mapByUserName->size()) != numUsers) {
+        asssert(false && "Map size mismatch: Expected " + std::to_string(numUsers) + ", but got " + std::to_string(mapByUserName->size()));
+	}
+	std::cout << "Test build the map passed" << std::endl;
 }
 
 // TODO function 3
@@ -60,8 +58,7 @@ void testMapSorted(map<string, User> aMap) {
 	    ++iter; 
 	    while ( iter != aMap.end() ) {
 	        if ( iter->first <= prev->first ) {
-				std::cerr << "Map keys are not sorted" << std::endl;
-	            return EXIT_FAILURE;
+	            throw std::runtime_error("Test failed: Map keys are not sorted");
 	        }
 	        prev = iter; 
 	        ++iter; 
@@ -97,23 +94,18 @@ void printMostPopularCategory(map<string, User> aMap) {
 }
 
 // TODO function 9
-map<string, User> buildMapByEmail(vector<User> users) {
+map<string, User> buildMapByEmail(const vector<User>& users) {
     map<string, User> usersMap;
-    for (int i = 0; i < users.size(); ++i) {
-        usersMap[users[i].email] = users[i];
+    for (const auto& user : users) {
+        usersMap[user.email] = user;
     }
     return usersMap;
 }
 
 int main(int argc, char** argv)
 {
-	std::map<int, std::string> myMap = {{1, "one"}, {2, "two"}, {3, "three"}};
-
-    int keyToCheck = 2;
-	
     int numUsers = 10;
     vector<User> users = generateUsers(numUsers);
-
 
     std::cout << "Build map with username as key" << std::endl;
     map<string, User> mapByUserName = buildMapByUserName(users);
@@ -146,17 +138,17 @@ int main(int argc, char** argv)
 		}
 		else if (testName == "TestDeleteByKey") {
 			std::string keyToDelete = "lexi5";
-		    assert(testDeleteByKey(mapByUserName, keyToDelete));
+		    testDeleteByKey(mapByUserName, keyToDelete);
 
     		keyToDelete = "kat@gmail.com";
-			assert(testDeleteByKey(mapByEmail, keyToDelete));
+			testDeleteByKey(mapByEmail, keyToDelete);
 		}
 		else if (testName == "TestSortedKey") {
 		    testMapSorted(mapByUserName);
 		}
 		else if (testName == "TestPrintActiveUsers") {
 		    std::cout << "Print usernames with more than 800 tweets:" << std::endl;
-		    printActiveUsers(mapByUserName);gtyh
+		    printActiveUsers(mapByUserName);
 		    std::cout << std::endl;
 		}
 		else if (testName == "TestPrintMostPopularCategory") {
