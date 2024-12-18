@@ -36,7 +36,7 @@ int main(int argc, char** argv)
     std::string testName = argv[1];
 	std::cout << "Test starts: " << testName << std::endl;
     try {
-        if (testName == "QSC") {
+        if (testName == "TestSize_QSC") {
             testSize_QSC();
 		}
 		else if (testName == "TestEmpty_EQC") {
