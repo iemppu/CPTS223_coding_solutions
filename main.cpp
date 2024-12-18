@@ -15,20 +15,18 @@ map<string, User> buildMapByUserName(const vector<User>& users) {
 // TODO function 2
 void testBuildMap(const map<string, User>* mapByUserName, int numUsers) {
 	std::cout << "Run test: build the map" << std::endl;
-    if (mapByUserName == nullptr) {
-        assert(false && "Error: Null pointer received");
-    }
-    
-	if (static_cast<int>(mapByUserName->size()) != numUsers) {
-        assert(false && "Test build the map failed: map size mismatch");
-	}
+	assert(mapByUserName != nullptr && "Error: Null pointer received");
+
+	actualSize = static_cast<int>(mapByUserName->size());
+	assert(actualSize != numUsers && ("Test build the map failed: map size mismatch. Expected " +
+            std::to_string(numUsers) + ", but got " + std::to_string(actualSize)).c_str());
 	std::cout << "Test build the map passed" << std::endl;
 }
 
 // TODO function 3
-void printMap(map<string, User> aMap) {
-    int i = 0;
-    for (auto elem : aMap) {
+void printMap(const map<string, User>& aMap) {
+    std::size_t i = 0;
+    for (const auto& elem : aMap) {
         std::cout << "#" << i << ". Key: " << elem.first << ", Value: ";
         printAUser(elem.second);
         i++;
@@ -36,21 +34,24 @@ void printMap(map<string, User> aMap) {
 }
 
 // TODO function 4
-void testSearchByKey(map<string, User>& aMap, string keyToSearch) {
+void testSearchByKey(const map<string, User>& aMap, const string& keyToSearch) {
 	std::cout << "Run test: search by key" << std::endl;
     assert((aMap.find(keyToSearch) != aMap.end()) && "Key is not contained in the map");
 	std::cout << "Test search by key Passed" << std::endl;
 }
 
 // TODO function 5
-void testDeleteByKey(map<string, User> aMap, string keyToDelete) {		
+void testDeleteByKey(map<string, User>& aMap, const std::string& keyToDelete) {		
 	std::cout << "Run test: delete by key" << std::endl;
-    assert((aMap.find(keyToDelete) != aMap.end()) && "Key is not contained in the map");
+    auto iter = aMap.find(keyToDelete);
+	assert((iter != aMap.end()) && "Key is not contained in the map");
+	aMap.erase(iter);
+	assert((aMap.find(keyToDelete) == aMap.end()) && "Key is still contained in the map: erase failed!");
 	std::cout << "Test delete by key Passed" << std::endl;
 }
 
 // TODO function 6
-void testMapSorted(map<string, User> aMap) {
+void testMapSorted(const map<string, User>& aMap) {
 	std::cout << "Run test: if map's keys are sorted" << std::endl;
     if ( aMap.empty() == false ) {
 	    map<string, User>::iterator iter = aMap.begin();
@@ -68,26 +69,26 @@ void testMapSorted(map<string, User> aMap) {
 }
 
 // TODO function 7
-void printActiveUsers(map<string, User> aMap) {
-    int activeThreshold = 800;
-    for ( auto iter = aMap.begin(); iter != aMap.end(); iter++) {
-        if ( activeThreshold < iter->second.numPosts )
-            std::cout << iter->second.userName << ": " << iter->second.numPosts << " tweets" << std::endl;
+void printActiveUsers(const map<string, User>& aMap) {
+    const int activeThreshold = 800;
+    for ( const auto & [key, user] : aMap) {
+        if ( activeThreshold < user.numPosts )
+            std::cout << iter->user.userName << ": " << iter->user.numPosts << " tweets" << std::endl;
     }
 }
 
 // TODO function 8
-void printMostPopularCategory(map<string, User> aMap) {
+void printMostPopularCategory(const map<string, User>& aMap) {
     map<string, int> categoryMap;
     for ( auto iter = aMap.begin(); iter != aMap.end(); iter++ ) {
         categoryMap[iter->second.mostViewedCategory]++;
     }
     string mostPopularCategory;
-    int num;
-    for ( auto iter = categoryMap.begin(); iter != categoryMap.end(); iter++ ) {
-        if ( num < iter->second ) {
-            num = iter->second;
-            mostPopularCategory = iter->first;
+    int num = 0;
+    for ( const auto& [category, count] : categoryMap ) {
+        if ( count > num ) {
+            num = count;
+            mostPopularCategory = category;
         }
     }
     std::cout << "The most popular category is " << mostPopularCategory << ", which is " << num << " users' most viewed category." << std::endl;
