@@ -1,8 +1,6 @@
 #include <map>
-// #include <unordered_map>
 #include <cassert>
 #include "generate_users.hpp"
-using namespace std;
 
 
 map<string, User> buildMapByUserName(vector<User> users) {
@@ -14,11 +12,9 @@ map<string, User> buildMapByUserName(vector<User> users) {
     return usersMap;
 }
 
-
 map<string, User> buildMapByEmail(vector<User> users) {
     map<string, User> usersMap;
-    for (int i = 0; i < users.size(); ++i)
-    {
+    for (int i = 0; i < users.size(); ++i)IK
         usersMap[users[i].email] = users[i];
     }
     return usersMap;
@@ -152,12 +148,11 @@ int main(int argc, char** argv)
 		}
 		else if (testName == "TestSearchByKey") {
 		    cout << "Run test: Search by key" << endl;
-			printMap(mapByUserName);
-			string keyToSearch = "rangerPower";
-			auto tt = (mapByUserName.find(keyToSearch) != mapByUserName.end());
-			cout << tt << endl;
-			assert(tt == 1);
-
+			string keyToSearch = "smith55";
+			assert(testSearchByKey(mapByUserName, keyToSearch));
+			
+			string keyToSearch = "smitRick@gmail.com";
+			assert(testSearchByKey(mapByEmail, keyToSearch));
 			
 			cout << "Test Search by key Passed" << endl;
 
@@ -165,12 +160,12 @@ int main(int argc, char** argv)
 		else if (testName == "TestDeleteByKey") {
 		    cout << "Run test: Delete by key" << endl;
 			string keyToDelete = "lexi5";
-		    // assert(testDeleteByKey(mapByUserName, keyToDelete) == 1);
+		    assert(testDeleteByKey(mapByUserName, keyToDelete));
 
-   //  		keyToDelete = "kat@gmail.com";
-			// assert(testDeleteByKey(mapByEmail, keyToDelete) == 1);
+    		keyToDelete = "kat@gmail.com";
+			assert(testDeleteByKey(mapByEmail, keyToDelete));
 				
-		 //    cout << "Test Delete by key Passed" << endl;
+		    cout << "Test Delete by key Passed" << endl;
 		}
 		else if (testName == "TestSortedKey") {
 			cout << "Run test if map's key is sorted" << endl;
