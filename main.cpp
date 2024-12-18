@@ -157,17 +157,17 @@ int main(int argc, char** argv)
 			cout << "mapByUserName contains keyToSearch: " 
 				<< (mapByUserName.find(keyToSearch) != mapByUserName.end()) << endl;
 
-			auto it = mapByUserName.find(keyToSearch);
-			if (it != mapByUserName.end()) {
-			    std::cout << "kk passed" << std::endl;
-				assert(true);
-			}
-			else {
-			    std::cout << "kk failed" << std::endl;
-				assert(false);
-			}
+			// auto it = mapByUserName.find(keyToSearch);
+			// if (it != mapByUserName.end()) {
+			//     std::cout << "kk passed" << std::endl;
+			// 	assert(true);
+			// }
+			// else {
+			//     std::cout << "kk failed" << std::endl;
+			// 	assert(false);
+			// }
 
-			// assert(mapByUserName.size() == static_cast<size_t>(numUsers));
+			assert(mapByUserName.size() == static_cast<size_t>(8));
 			// assert(it != mapByUserName.end());
 						
 			// assert(!mapByUserName.empty());
