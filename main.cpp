@@ -164,6 +164,8 @@ int main(int argc, char** argv)
             std::cerr << "Unknown test: " << testName << std::endl;
             return 1;
         }
+		
+	    std::cout << "Test Passed: " << testName << std::endl;
     } catch (const std::exception& e) {
         std::cerr << "Test Failed: " << testName << " - " << e.what() << std::endl;
         return 1;
