@@ -76,31 +76,24 @@ int main(int argc, char** argv)
     try {
         if (testName == "TestInOrderTraversal") {
             testInOrderTraversal(bst);
-			std::cout << std::endl;
 		}
 		else if (testName == "TestPrintLevels") {
 			testPrintLevels(bst);
-			std::cout << std::endl;
 		}
 		else if (testName == "TestContain") {
 			testContain(bst);
-			std::cout << std::endl;
 		}
 		else if (testName == "TestSize") {
 			testSize(bst);
-			std::cout << std::endl;
 		}
 		else if (testName == "TestHeight") {
 			testHeight(bst);
-			std::cout << std::endl;
 		}
 		else if (testName == "TestPrintMaxPath") {
 			testPrintMaxPath(bst);
-			std::cout << std::endl;
 		}
 		else if (testName == "TestDelete") {
 			testDelete(bst);
-			std::cout << std::endl;
         } else {
             std::cerr << "Unknown test: " << testName << std::endl;
             return 1;
