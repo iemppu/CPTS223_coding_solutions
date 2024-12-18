@@ -161,7 +161,7 @@ int main(int argc, char** argv)
 			//     std::cout << "kk failed" << std::endl;
 			// }
 			
-			// assert(it != mapByUserName.end());
+			assert(it != mapByUserName.end());
 						
 			// assert(!mapByUserName.empty());
 			
@@ -169,7 +169,7 @@ int main(int argc, char** argv)
 			// 	std::cout << "kkk passed" << std::endl;
 			// }
 			// else {std::cout << "kkk failed" << std::endl;}
-		    assert( it != mapByUserName.end() );
+		    // assert( it != mapByUserName.end() );
 				
 			// keyToSearch = "lexi55";
 			// assert( testSearchByKey(mapByUserName, keyToSearch) == 1 );
