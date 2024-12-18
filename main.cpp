@@ -38,49 +38,36 @@ void printMap(map<string, User> aMap) {
 }
 
 // TODO function 4
-bool testSearchByKey(map<string, User>& aMap, string keyToSearch) {
-    auto iter = aMap.find(keyToSearch);
-
-    if (iter != aMap.end())
-        return true; 
-    else
-        return false; 
+void testSearchByKey(map<string, User>& aMap, string keyToSearch) {
+	std::cout << "Run test: search by key" << std::endl;
+    assert((aMap.find(keyToSearch) != aMap.end()) && "Key is not contained in the map");
+	std::cout << "Test search by key Passed" << std::endl;
 }
 
 // TODO function 5
-bool testDeleteByKey(map<string, User> aMap, string keyToDelete) {
-    auto iter = aMap.find(keyToDelete);
-
-    if (iter == aMap.end()) 
-        return false;
-    else {
-        aMap.erase(keyToDelete);
-        iter = aMap.find(keyToDelete);
-        if (iter == aMap.end())
-            return true; 
-        else
-            return false; 
-    }
+void testDeleteByKey(map<string, User> aMap, string keyToDelete) {		
+	std::cout << "Run test: delete by key" << std::endl;
+    assert((aMap.find(keyToDelete) != aMap.end()) && "Key is not contained in the map");
+	std::cout << "Test delete by key Passed" << std::endl;
 }
 
 // TODO function 6
-bool isMapSorted(map<string, User> aMap) {
-    if ( aMap.empty() )
-        return true;
-
-    map<string, User>::iterator iter = aMap.begin();
-    map<string, User>::iterator prev = iter;  
-    ++iter; 
-
-    while ( iter != aMap.end() ) {
-        if ( iter->first <= prev->first ) {
-            return false;
-        }
-        prev = iter; 
-        ++iter; 
-    }
-    return true;
-
+void testMapSorted(map<string, User> aMap) {
+	std::cout << "Run test: if map's keys are sorted" << std::endl;
+    if ( aMap.empty() == false ) {
+	    map<string, User>::iterator iter = aMap.begin();
+	    map<string, User>::iterator prev = iter;  
+	    ++iter; 
+	    while ( iter != aMap.end() ) {
+	        if ( iter->first <= prev->first ) {
+				std::cerr << "Map keys are not sorted" << std::endl;
+	            return EXIT_FAILURE;
+	        }
+	        prev = iter; 
+	        ++iter; 
+	    }
+	}
+	std::cout << "Test sorted map key Passed" << std::endl;
 }
 
 // TODO function 7
@@ -142,10 +129,8 @@ int main(int argc, char** argv)
 
     try {
         if (testName == "TestBuildMap") {
-			std::cout << "Run test build maps" << std::endl;
             testBuildMap(&mapByUserName, numUsers);
             testBuildMap(&mapByEmail, numUsers);
-			std::cout << "Test build maps Passed" << std::endl;
 		}
 		else if (testName == "TestPrintByUserName") {
 			std::cout << "Print \"mapByUserName\" map:" << std::endl;
@@ -153,33 +138,25 @@ int main(int argc, char** argv)
 			std::cout << std::endl;
 		}
 		else if (testName == "TestSearchByKey") {
-		    std::cout << "Run test: search by key" << std::endl;
 			std::string keyToSearch = "smith55";
-			assert(testSearchByKey(mapByUserName, keyToSearch));
+			testSearchByKey(mapByUserName, keyToSearch);
 			
 			keyToSearch = "smitRick@gmail.com";
-			assert(testSearchByKey(mapByEmail, keyToSearch));
-			
-			std::cout << "Test search by key Passed" << std::endl;
+			testSearchByKey(mapByEmail, keyToSearch);
 		}
 		else if (testName == "TestDeleteByKey") {
-		    std::cout << "Run test: delete by key" << std::endl;
 			std::string keyToDelete = "lexi5";
 		    assert(testDeleteByKey(mapByUserName, keyToDelete));
 
     		keyToDelete = "kat@gmail.com";
 			assert(testDeleteByKey(mapByEmail, keyToDelete));
-				
-		    std::cout << "Test delete by key Passed" << std::endl;
 		}
 		else if (testName == "TestSortedKey") {
-			std::cout << "Run test: if map's keys are sorted" << std::endl;
-		    assert(isMapSorted(mapByUserName) == 1);
-		    std::cout << "Test sorted map key Passed" << std::endl;
+		    testMapSorted(mapByUserName);
 		}
 		else if (testName == "TestPrintActiveUsers") {
 		    std::cout << "Print usernames with more than 800 tweets:" << std::endl;
-		    printActiveUsers(mapByUserName);
+		    printActiveUsers(mapByUserName);gtyh
 		    std::cout << std::endl;
 		}
 		else if (testName == "TestPrintMostPopularCategory") {
