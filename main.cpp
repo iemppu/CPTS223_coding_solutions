@@ -73,7 +73,7 @@ void printActiveUsers(const map<string, User>& aMap) {
     const int activeThreshold = 800;
     for ( const auto & [key, user] : aMap) {
         if ( activeThreshold < user.numPosts )
-            std::cout << user.userName << ": " << iter->user.numPosts << " tweets" << std::endl;
+            std::cout << user.userName << ": " << user.numPosts << " tweets" << std::endl;
     }
 }
 
