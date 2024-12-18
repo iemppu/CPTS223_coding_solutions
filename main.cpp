@@ -155,10 +155,10 @@ int main(int argc, char** argv)
 
 			auto it = mapByUserName.find(keyToSearch);
 			if (it != mapByUserName.end()) {
-			    std::cout << "passed" << std::endl;
+			    std::cout << "kk passed" << std::endl;
 			}
 			else {
-			    std::cout << "failed" << std::endl;
+			    std::cout << "kk failed" << std::endl;
 			}
 			
 			assert(it != mapByUserName.end());
