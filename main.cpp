@@ -154,22 +154,22 @@ int main(int argc, char** argv)
 				<< (mapByUserName.find(keyToSearch) != mapByUserName.end()) << endl;
 
 			auto it = mapByUserName.find(keyToSearch);
-			if (it != mapByUserName.end()) {
-			    std::cout << "kk passed" << std::endl;
-			}
-			else {
-			    std::cout << "kk failed" << std::endl;
-			}
+			// if (it != mapByUserName.end()) {
+			//     std::cout << "kk passed" << std::endl;
+			// }
+			// else {
+			//     std::cout << "kk failed" << std::endl;
+			// }
 			
-			assert(it != mapByUserName.end());
+			// assert(it != mapByUserName.end());
 						
-			assert(!mapByUserName.empty());
+			// assert(!mapByUserName.empty());
 			
-			if (mapByUserName.find(keyToSearch) != mapByUserName.end()) {
-				std::cout << "kkk passed" << std::endl;
-			}
-			else {std::cout << "kkk failed" << std::endl;}
-		    assert( mapByUserName.find(keyToSearch) != mapByUserName.end() );
+			// if (mapByUserName.find(keyToSearch) != mapByUserName.end()) {
+			// 	std::cout << "kkk passed" << std::endl;
+			// }
+			// else {std::cout << "kkk failed" << std::endl;}
+		    assert( it != mapByUserName.end() );
 				
 			// keyToSearch = "lexi55";
 			// assert( testSearchByKey(mapByUserName, keyToSearch) == 1 );
