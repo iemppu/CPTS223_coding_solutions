@@ -74,27 +74,30 @@ jobs:
       # Build your program with the given configuration. Note that --config is needed because the default Windows generator is a multi-config generator (Visual Studio generator).
       run: cmake --build ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }}
       
-    - name: Run C++ program TestSearchByKey (Windows)
+    - name: Run C++ program tests (Windows)
       if: runner.os == 'Windows'
       run: |
+        ./build/${{ matrix.build_type }}/MA3.exe TestBuildMap
+        ./build/${{ matrix.build_type }}/MA3.exe TestPrintByUserName
         ./build/${{ matrix.build_type }}/MA3.exe TestSearchByKey
+        ./build/${{ matrix.build_type }}/MA3.exe TestDeleteByKey
+        ./build/${{ matrix.build_type }}/MA3.exe TestSortedKey
+        ./build/${{ matrix.build_type }}/MA3.exe TestPrintActiveUsers
+        ./build/${{ matrix.build_type }}/MA3.exe TestPrintMostPopularCategory
       shell: bash
       
-    - name: Run C++ program TestSearchByKey
+    - name: Run C++ program tests (non-Windows)
       if: runner.os != 'Windows'
       run: |
+        ./build/MA3 TestBuildMap
+        ./build/MA3 TestPrintByUserName
         ./build/MA3 TestSearchByKey
+        ./build/MA3 TestDeleteByKey
+        ./build/MA3 TestSortedKey
+        ./build/MA3 TestPrintActiveUsers
+        ./build/MA3 TestPrintMostPopularCategory
       shell: bash
-
-    # - name: Run C++ program TestDeleteByKey
-    #   run: |
-    #     if ("${{ runner.os }}" == "Windows"); then
-    #         ./build/${{ matrix.build_type }}/MA3.exe TestDeleteByKey
-    #       else
-    #         ./build/MA3 TestDeleteByKey
-    #       fi
-    #     shell: bash
-      
+            
     - name: Test
       # working-directory: ${{ github.workspace }}
       working-directory: ${{ steps.strings.outputs.build-output-dir }}
