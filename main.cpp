@@ -92,10 +92,10 @@ int main(int argc, char** argv)
     std::string testName = argv[1];
 
     try {
-        if (testName == "InOrderTraversal") {
+        if (testName == "TestInOrderTraversal") {
             testInOrderTraversal(bst);
 		}
-		else if (testName == "PrintLevels") {
+		else if (testName == "TestPrintLevels") {
 			testPrintLevels(bst);
 		}
 		else if (testName == "TestContain") {
@@ -107,7 +107,7 @@ int main(int argc, char** argv)
 		else if (testName == "TestHeight") {
 			testHeight(bst);
 		}
-		else if (testName == "PrintMaxPath") {
+		else if (testName == "TestPrintMaxPath") {
 			testPrintMaxPath(bst);
 		}
 		else if (testName == "TestDelete") {
