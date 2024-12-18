@@ -7,17 +7,13 @@
 #include <sstream>
 #include "BST.h"
 
-
 void testInOrderTraversal(BST<int>* bst) {
     std::stringstream buffer;
     std::streambuf* oldCout = std::cout.rdbuf(buffer.rdbuf());
     bst->printInOrder();
     std::cout.rdbuf(oldCout);
-    
     std::string expected = "-10 -> -1 -> 1 -> 6 -> 11 -> 100 -> </s>";
     assert(buffer.str() == expected);
-
-	std::cout << "PrintInOrder test passed!" << endl;
 }
 
 void testPrintLevels(BST<int>* bst) {
@@ -25,30 +21,21 @@ void testPrintLevels(BST<int>* bst) {
     std::streambuf* oldCout = std::cout.rdbuf(buffer.rdbuf());
     bst->printLevels();
     std::cout.rdbuf(oldCout);
-    
     std::string expected = "Level 0: 11 \nLevel 1: 1 100 \nLevel 2: -1 6 \nLevel 3: -10 \n";
     assert(buffer.str() == expected);
-
-	std::cout << "PrintLevels test passed!" << endl;
 }
 
 void testContain(BST<int>* bst) {
 	assert(bst->contains(100) == 1);
 	assert(bst->contains(9) == 0);
-
-	std::cout << "Contain test passed!" << endl;
 }
 
 void testSize(BST<int>* bst) {
 	assert(bst->treeSize() == 6);
-
-	std::cout << "Size test passed!" << endl;
 }
 
 void testHeight(BST<int>* bst) {
 	assert(bst->treeHeight() == 3);
-
-	std::cout << "Height test passed!" << endl;
 }
 
 void testPrintMaxPath(BST<int>* bst) {
@@ -56,18 +43,13 @@ void testPrintMaxPath(BST<int>* bst) {
     std::streambuf* oldCout = std::cout.rdbuf(buffer.rdbuf());
     bst->printMaxPath();
     std::cout.rdbuf(oldCout);
-    
     std::string expected = "11 -> 1 -> -1 -> -10 -> </s>";
     assert(buffer.str() == expected);
-
-	std::cout << "PrintMaxPath test passed!" << endl;
 }
 
 void testDelete(BST<int>* bst) {
 	bst->remove(11);
 	assert(bst->contains(11) == 0);
-
-	std::cout << "Delete test passed!" << endl;
 }
 
 int main(int argc, char** argv)
