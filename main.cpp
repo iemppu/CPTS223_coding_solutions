@@ -164,18 +164,23 @@ int main(int argc, char** argv)
 			else {
 			    std::cout << "kk failed" << std::endl;
 			}
+
+			for (const auto& [key, value] : mapByUserName) {
+			    std::cout << "Key: " << key << ", Value: " << value << "\n";
+			}
+			std::cout << "Key to search: " << keyToSearch << "\n";
 			
-			// assert(it != mapByUserName.end());
+			assert(it != mapByUserName.end());
 						
 			// assert(!mapByUserName.empty());
 			
-			if (mapByUserName.find(keyToSearch) != mapByUserName.end()) {
-				std::cout << "kkk passed" << std::endl;
-			}
-			else {
-				std::cerr << "Key does not exist in the map!" << std::endl;
-    			return EXIT_FAILURE;
-			}
+			// if (mapByUserName.find(keyToSearch) != mapByUserName.end()) {
+			// 	std::cout << "kkk passed" << std::endl;
+			// }
+			// else {
+			// 	std::cerr << "Key does not exist in the map!" << std::endl;
+   //  			return EXIT_FAILURE;
+			// }
 		    // assert( it != mapByUserName.end() );
 				
 			// keyToSearch = "lexi55";
