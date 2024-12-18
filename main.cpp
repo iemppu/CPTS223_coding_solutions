@@ -153,7 +153,9 @@ int main(int argc, char** argv)
 		else if (testName == "TestSearchByKey") {
 		    cout << "Run test: Search by key" << endl;
 			string keyToSearch = "rangerPower";
-			cout << (mapByUserName.find(keyToSearch) != mapByUserName.end()) << endl;
+			auto tt = (mapByUserName.find(keyToSearch) != mapByUserName.end());
+			cout << tt << endl;
+			assert(tt == 1);
 
 			
 			cout << "Test Search by key Passed" << endl;
