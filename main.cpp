@@ -166,7 +166,7 @@ int main(int argc, char** argv)
 			}
 
 			int i = 0;
-		    for (auto elem : aMap) {
+		    for (auto elem : mapByUserName) {
 		        cout << "#" << i << ". Key: " << elem.first << ", Value: ";
 		        printAUser(elem.second);
 		        i++;
