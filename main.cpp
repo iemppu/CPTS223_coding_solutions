@@ -14,7 +14,7 @@ map<string, User> buildMapByUserName(vector<User> users) {
 
 map<string, User> buildMapByEmail(vector<User> users) {
     map<string, User> usersMap;
-    for (int i = 0; i < users.size(); ++i)IK
+    for (int i = 0; i < users.size(); ++i) {
         usersMap[users[i].email] = users[i];
     }
     return usersMap;
@@ -23,7 +23,7 @@ map<string, User> buildMapByEmail(vector<User> users) {
 void printMap(map<string, User> aMap) {
     int i = 0;
     for (auto elem : aMap) {
-        cout << "#" << i << ". Key: " << elem.first << ", Value: ";
+        std::cout << "#" << i << ". Key: " << elem.first << ", Value: ";
         printAUser(elem.second);
         i++;
     }
@@ -76,7 +76,7 @@ void printActiveUsers(map<string, User> aMap) {
     int activeThreshold = 800;
     for ( auto iter = aMap.begin(); iter != aMap.end(); iter++) {
         if ( activeThreshold < iter->second.numPosts )
-            cout << iter->second.userName << ": " << iter->second.numPosts << " tweets" << endl;
+            std::cout << iter->second.userName << ": " << iter->second.numPosts << " tweets" << std::endl;
     }
 }
 
@@ -93,21 +93,21 @@ void printMostPopularCategory(map<string, User> aMap) {
             mostPopularCategory = iter->first;
         }
     }
-    cout << "The most popular category is " << mostPopularCategory << ", which is " << num << " users' most viewed category." << endl;
+    std::cout << "The most popular category is " << mostPopularCategory << ", which is " << num << " users' most viewed category." << std::endl;
 }
 
 
 
 void testBuildMap(map<string, User>* mapByUserName, int numUsers) {
-	cout << "Run test: build the map" << endl;
+	std::cout << "Run test: build the map" << std::endl;
     if (mapByUserName == nullptr) {
-        cout << "Error: Null pointer received." << endl;
+        std::cout << "Error: Null pointer received." << std::endl;
         assert(false && "Null pointer received");
         return;
     }
     else {
         assert(mapByUserName->size() == static_cast<size_t>(numUsers));
-        cout << "Test build the map passed" << endl;
+        std::cout << "Test build the map passed" << std::endl;
         return;
     }
 }
@@ -124,9 +124,9 @@ int main(int argc, char** argv)
     vector<User> users = generateUsers(numUsers);
 
 
-    cout << "Build map with username as key" << endl;
+    std::cout << "Build map with username as key" << std::endl;
     map<string, User> mapByUserName = buildMapByUserName(users);
-    cout << "Build map with email as key" << endl;
+    std::cout << "Build map with email as key" << std::endl;
     map<string, User> mapByEmail = buildMapByEmail(users);
 
     if (argc != 2) {
@@ -142,47 +142,47 @@ int main(int argc, char** argv)
             testBuildMap(&mapByEmail, numUsers);
 		}
 		else if (testName == "TestPrintByUserName") {
-			cout << "Print \"mapByUserName\" map:" << endl;
+			std::cout << "Print \"mapByUserName\" map:" << std::endl;
 			printMap(mapByUserName);
-			cout << endl;
+			std::cout << std::endl;
 		}
 		else if (testName == "TestSearchByKey") {
-		    cout << "Run test: Search by key" << endl;
-			string keyToSearch = "smith55";
+		    std::cout << "Run test: Search by key" << std::endl;
+			std::string keyToSearch = "smith55";
 			assert(testSearchByKey(mapByUserName, keyToSearch));
 			
-			string keyToSearch = "smitRick@gmail.com";
+			keyToSearch = "smitRick@gmail.com";
 			assert(testSearchByKey(mapByEmail, keyToSearch));
 			
-			cout << "Test Search by key Passed" << endl;
+			std::cout << "Test Search by key Passed" << std::endl;
 
 		}
 		else if (testName == "TestDeleteByKey") {
-		    cout << "Run test: Delete by key" << endl;
-			string keyToDelete = "lexi5";
+		    std::cout << "Run test: Delete by key" << std::endl;
+			std::string keyToDelete = "lexi5";
 		    assert(testDeleteByKey(mapByUserName, keyToDelete));
 
     		keyToDelete = "kat@gmail.com";
 			assert(testDeleteByKey(mapByEmail, keyToDelete));
 				
-		    cout << "Test Delete by key Passed" << endl;
+		    std::cout << "Test Delete by key Passed" << std::endl;
 		}
 		else if (testName == "TestSortedKey") {
-			cout << "Run test if map's key is sorted" << endl;
+			std::cout << "Run test if map's key is sorted" << std::endl;
 		    assert(isMapSorted(mapByUserName) == 1);
-		    cout << "Test Sorted Key Passed" << endl;
+		    std::cout << "Test Sorted Key Passed" << std::endl;
 
 		}
 		else if (testName == "TestPrintActiveUsers") {
-		    cout << "Run test print usernames with more than 800 tweets:" << endl;
+		    std::cout << "Run test print usernames with more than 800 tweets:" << std::endl;
 		    printActiveUsers(mapByUserName);
-		    cout << endl;
+		    std::cout << std::endl;
 			
 		}
 		else if (testName == "TestPrintMostPopularCategory") {
-		    cout << "Run test print the most popular category" << endl;
+		    std::cout << "Run test print the most popular category" << std::endl;
 		    printMostPopularCategory(mapByUserName);
-		    cout << endl;
+		    std::cout << std::endl;
         } else {
             std::cerr << "Unknown test: " << testName << std::endl;
             return 1;
