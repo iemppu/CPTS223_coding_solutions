@@ -174,7 +174,7 @@ int main(int argc, char** argv)
 			}
 			else {
 				std::cerr << "Key does not exist in the map!" << std::endl;
-    			return EXIT_FAILURE;
+    			// return EXIT_FAILURE;
 			}
 		    // assert( it != mapByUserName.end() );
 				
