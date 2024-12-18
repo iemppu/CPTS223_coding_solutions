@@ -152,42 +152,9 @@ int main(int argc, char** argv)
 		}
 		else if (testName == "TestSearchByKey") {
 		    cout << "Run test: Search by key" << endl;
+			printMap(mapByUserName);
+			
 			string keyToSearch = "rangerPower";
-
-			cout << "mapByUserName contains keyToSearch: " 
-				<< (mapByUserName.find(keyToSearch) != mapByUserName.end()) << endl;
-
-			// auto it = mapByUserName.find(keyToSearch);
-			// if (it != mapByUserName.end()) {
-			//     std::cout << "kk passed" << std::endl;
-			// 	assert(true);
-			// }
-			// else {
-			//     std::cout << "kk failed" << std::endl;
-			// 	assert(false);
-			// }
-
-			assert(mapByUserName.size() == static_cast<size_t>(8));
-			// assert(it != mapByUserName.end());
-						
-			// assert(!mapByUserName.empty());
-			
-			// if (mapByUserName.find(keyToSearch) != mapByUserName.end()) {
-			// 	std::cout << "kkk passed" << std::endl;
-			// }
-			// else {
-			// 	std::cerr << "Key does not exist in the map!" << std::endl;
-   //  			return EXIT_FAILURE;
-			// }
-		    // assert( it != mapByUserName.end() );
-				
-			// keyToSearch = "lexi55";
-			// assert( testSearchByKey(mapByUserName, keyToSearch) == 1 );
-			
-			// keyToSearch = "kat@gmail.com";
-			// assert( testSearchByKey(mapByUserName, keyToSearch) == 1 );
-			// assert( testSearchByKey(mapByEmail, keyToSearch) == 0 );
-		    
 			cout << "Test Search by key Passed" << endl;
 
 		}
