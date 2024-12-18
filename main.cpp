@@ -18,8 +18,9 @@ void testBuildMap(const map<string, User>* mapByUserName, int numUsers) {
 	assert(mapByUserName != nullptr && "Error: Null pointer received");
 
 	int actualSize = static_cast<int>(mapByUserName->size());
-	assert(actualSize != numUsers && ("Test build the map failed: map size mismatch. Expected " +
-            std::to_string(numUsers) + ", but got " + std::to_string(actualSize)).c_str());
+	assert(actualSize != numUser);
+	// assert(actualSize != numUsers && ("Test build the map failed: map size mismatch. Expected " +
+ //            std::to_string(numUsers) + ", but got " + std::to_string(actualSize)).c_str());
 	std::cout << "Test build the map passed" << std::endl;
 }
 
