@@ -20,7 +20,7 @@ void testBuildMap(const map<string, User>* mapByUserName, int numUsers) {
     }
     
 	if (static_cast<int>(mapByUserName->size()) != numUsers) {
-        asssert(false && "Map size mismatch: Expected " + std::to_string(numUsers) + ", but got " + std::to_string(mapByUserName->size()));
+        assert(false && "Test build the map failed: map size mismatch");
 	}
 	std::cout << "Test build the map passed" << std::endl;
 }
