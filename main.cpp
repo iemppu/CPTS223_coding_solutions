@@ -171,7 +171,7 @@ int main(int argc, char** argv)
 		        printAUser(elem.second);
 		        i++;
 		    }
-			
+			assert(mapByUserName.size() == static_cast<size_t>(numUsers));
 			assert(it != mapByUserName.end());
 						
 			// assert(!mapByUserName.empty());
