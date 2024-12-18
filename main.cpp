@@ -165,10 +165,12 @@ int main(int argc, char** argv)
 			    std::cout << "kk failed" << std::endl;
 			}
 
-			for (const auto& [key, value] : mapByUserName) {
-			    std::cout << "Key: " << key << ", Value: " << value << "\n";
-			}
-			std::cout << "Key to search: " << keyToSearch << "\n";
+			int i = 0;
+		    for (auto elem : aMap) {
+		        cout << "#" << i << ". Key: " << elem.first << ", Value: ";
+		        printAUser(elem.second);
+		        i++;
+		    }
 			
 			assert(it != mapByUserName.end());
 						
