@@ -120,6 +120,14 @@ void testBuildMap(map<string, User>* mapByUserName, int numUsers) {
 
 int main(int argc, char** argv)
 {
+	std::map<int, std::string> myMap = {{1, "one"}, {2, "two"}, {3, "three"}};
+
+    int keyToCheck = 2;
+
+    // 用 assert 验证键是否存在
+    assert(myMap.find(keyToCheck) != myMap.end() && "Key does not exist in the map!");
+
+	
     int numUsers = 10;
     vector<User> users = generateUsers(numUsers);
 
