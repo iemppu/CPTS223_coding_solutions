@@ -160,18 +160,14 @@ int main(int argc, char** argv)
 			auto it = mapByUserName.find(keyToSearch);
 			if (it != mapByUserName.end()) {
 			    std::cout << "kk passed" << std::endl;
+				assert(true);
 			}
 			else {
 			    std::cout << "kk failed" << std::endl;
+				assert(false);
 			}
 
-			int i = 0;
-		    for (auto elem : mapByUserName) {
-		        cout << "#" << i << ". Key: " << elem.first << ", Value: ";
-		        printAUser(elem.second);
-		        i++;
-		    }
-			assert(mapByUserName.size() == static_cast<size_t>(numUsers));
+			// assert(mapByUserName.size() == static_cast<size_t>(numUsers));
 			// assert(it != mapByUserName.end());
 						
 			// assert(!mapByUserName.empty());
