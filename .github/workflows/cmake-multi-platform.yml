@@ -77,29 +77,29 @@ jobs:
     - name: Run C++ program tests (Windows)
       if: runner.os == 'Windows'
       run: |
-        ./build/${{ matrix.build_type }}/MA1.exe TestSize
-        ./build/${{ matrix.build_type }}/MA1.exe TestEmpty
-        ./build/${{ matrix.build_type }}/MA1.exe TestFull
-        ./build/${{ matrix.build_type }}/MA1.exe TestEnqueue
-        ./build/${{ matrix.build_type }}/MA1.exe TestEnqueueFull
-        ./build/${{ matrix.build_type }}/MA1.exe TestDequeue
-        ./build/${{ matrix.build_type }}/MA1.exe TestDequeueEmpty
-        ./build/${{ matrix.build_type }}/MA1.exe TestPeek
-        ./build/${{ matrix.build_type }}/MA1.exe TestPeekEmpty
+        ./build/${{ matrix.build_type }}/MA1.exe TestSize_QSC
+        ./build/${{ matrix.build_type }}/MA1.exe TestEmpty_EQC
+        ./build/${{ matrix.build_type }}/MA1.exe TestFull_FQC
+        ./build/${{ matrix.build_type }}/MA1.exe TestEnqueue_ENC1
+        ./build/${{ matrix.build_type }}/MA1.exe TestEnqueueFull_ENC2
+        ./build/${{ matrix.build_type }}/MA1.exe TestDequeue_DQC1
+        ./build/${{ matrix.build_type }}/MA1.exe TestDequeueEmpty_DQC2
+        ./build/${{ matrix.build_type }}/MA1.exe TestPeek_PQC1
+        ./build/${{ matrix.build_type }}/MA1.exe TestPeekEmpty_PQC2
       shell: bash
       
     - name: Run C++ program tests (non-Windows)
       if: runner.os != 'Windows'
       run: |
-        ./build/MA1 TestSize
-        ./build/MA1 TestEmpty
-        ./build/MA1 TestFull
-        ./build/MA1 TestEnqueue
-        ./build/MA1 TestEnqueueFull
-        ./build/MA1 TestDequeue
-        ./build/MA1 TestDequeueEmpty
-        ./build/MA1 TestPeek
-        ./build/MA1 TestPeekEmpty
+        ./build/MA1 TestSize_QSC
+        ./build/MA1 TestEmpty_EQC
+        ./build/MA1 TestFull_FQC
+        ./build/MA1 TestEnqueue_ENC1
+        ./build/MA1 TestEnqueueFull_ENC2
+        ./build/MA1 TestDequeue_DQC1
+        ./build/MA1 TestDequeueEmpty_DQC2
+        ./build/MA1 TestPeek_PQC1
+        ./build/MA1 TestPeekEmpty_PQC2
       shell: bash
       
     - name: Test
