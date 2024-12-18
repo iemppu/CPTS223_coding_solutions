@@ -128,7 +128,7 @@ int main(int argc, char** argv)
 		else if (testName == "TestPrintByUserName") {
 			std::cout << "Print \"mapByUserName\" map:" << std::endl;
 			printMap(mapByUserName);
-			std::cout << std::endl << std::endl;
+			std::cout << std::endl;
 		}
 		else if (testName == "TestSearchByKey") {
 			std::string keyToSearch = "smith55";
@@ -153,12 +153,12 @@ int main(int argc, char** argv)
 		else if (testName == "TestPrintActiveUsers") {
 		    std::cout << "Print usernames with more than 800 tweets:" << std::endl;
 		    printActiveUsers(mapByUserName);
-		    std::cout << std::endl << std::endl;
+		    std::cout << std::endl;
 		}
 		else if (testName == "TestPrintMostPopularCategory") {
 		    std::cout << "Print the most popular category" << std::endl;
 		    printMostPopularCategory(mapByUserName);
-		    std::cout << std::endl << std::endl;
+		    std::cout << std::endl;
         } else {
             std::cerr << "Unknown test: " << testName << std::endl;
             return 1;
